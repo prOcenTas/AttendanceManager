@@ -19,5 +19,8 @@ public class AdminActivity extends AppCompatActivity {
         setSupportActionBar(AppBar);
 
         //checking git connection
+        //checking git connection
+        //checking git connection
+        //checking git connection
     }
 }
