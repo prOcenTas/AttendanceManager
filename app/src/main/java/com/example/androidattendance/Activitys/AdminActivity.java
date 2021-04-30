@@ -18,6 +18,6 @@ public class AdminActivity extends AppCompatActivity {
         Toolbar AppBar=findViewById(R.id.AppBar);
         setSupportActionBar(AppBar);
 
-
+        //checking git connection
     }
 }
