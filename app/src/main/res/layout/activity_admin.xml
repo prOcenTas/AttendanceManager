@@ -70,7 +70,10 @@
         app:layout_constraintBottom_toTopOf="@+id/button3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        android:background="@drawable/button"
+        android:textColor="#ffff"
+        android:onClick="register"/>
 
     <Button
         android:id="@+id/button3"
@@ -82,7 +85,9 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-        app:layout_constraintVertical_bias="0.461" />
+        app:layout_constraintVertical_bias="0.461"
+        android:background="@drawable/button"
+        android:textColor="#ffff"/>
 
     <Button
         android:id="@+id/button4"
@@ -94,7 +99,9 @@
         app:layout_constraintBottom_toTopOf="@+id/imageView"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button3"
-        android:layout_marginLeft="10dp"/>
+        android:layout_marginLeft="10dp"
+        android:background="@drawable/button"
+        android:textColor="#ffff"/>
 
     <Button
         android:id="@+id/button5"
@@ -106,7 +113,9 @@
         app:layout_constraintBottom_toTopOf="@+id/imageView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button3"
-        android:layout_marginRight="10dp"/>
+        android:layout_marginRight="10dp"
+        android:background="@drawable/button"
+        android:textColor="#ffff"/>
 
     <ImageView
         android:id="@+id/imageView"
@@ -115,7 +124,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/VIAlogo" />
+         />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

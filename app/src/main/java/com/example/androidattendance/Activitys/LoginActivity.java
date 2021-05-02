@@ -3,68 +3,64 @@ package com.example.androidattendance.Activitys;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.ViewModelProvider;
+
 
 import com.example.androidattendance.R;
-import com.firebase.ui.auth.AuthUI;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
-import java.util.Arrays;
-import java.util.List;
 
 public class LoginActivity extends AppCompatActivity {
-    private static final int RC_SIGN_IN = 42;
-    private LoginViewModel viewModel;
+    private EditText loginEmail,loginPassword;
+    private Button loginButton;
 
+    private FirebaseAuth firebaseAuth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        viewModel = new ViewModelProvider(this).get(LoginViewModel.class);
-        checkIfSignedIn();
+
+        loginEmail=(EditText) findViewById(R.id.loginEmail);
+        loginPassword=(EditText) findViewById(R.id.loginPassword);
+
+        firebaseAuth=FirebaseAuth.getInstance();
+
+        FirebaseUser user=firebaseAuth.getCurrentUser();
+        if(user != null)
+        {
+            startActivity(new Intent(this,UserActivity.class));
+        }
 
     }
 
-    public void logIn(View v) {
-        List<AuthUI.IdpConfig> providers = Arrays.asList(
-                new AuthUI.IdpConfig.EmailBuilder().build(),
-                new AuthUI.IdpConfig.GoogleBuilder().build());
-
-        Intent signInIntent = AuthUI.getInstance()
-                .createSignInIntentBuilder()
-                .setAvailableProviders(providers)
-                .build();
-
-        startActivityForResult(signInIntent, RC_SIGN_IN);
+    public void login(View v)
+    {
+        validate(loginEmail.getText().toString(), loginPassword.getText().toString());
     }
 
-    private void checkIfSignedIn() {
-        viewModel.getCurrentUser().observe(this, user -> {
-            if (user != null)
-                goToMainActivity();
+    private void validate(String username,String password)
+    {
+        firebaseAuth.signInWithEmailAndPassword(username,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if(task.isSuccessful()){
+                    Toast.makeText(LoginActivity.this,"LOGIN SUCCESSFUL", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(LoginActivity.this,UserActivity.class));
+                }else {
+                    Toast.makeText(LoginActivity.this,"LOGIN FAILED", Toast.LENGTH_SHORT).show();
+                }
+            }
         });
     }
 
-    private void goToMainActivity() {
-        startActivity(new Intent(this, MainActivity.class));
-        finish();
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == RC_SIGN_IN) {
-            handleSignInRequest(resultCode);
-        }
-    }
-
-    private void handleSignInRequest(int resultCode) {
-        if (resultCode == RESULT_OK)
-            goToMainActivity();
-        else
-            Toast.makeText(this, "Mistakes were made", Toast.LENGTH_SHORT).show();
-    }
 }
 
