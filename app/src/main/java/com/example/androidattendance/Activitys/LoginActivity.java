@@ -29,6 +29,7 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+
         loginEmail=(EditText) findViewById(R.id.loginEmail);
         loginPassword=(EditText) findViewById(R.id.loginPassword);
 
@@ -54,7 +55,7 @@ public class LoginActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
                     Toast.makeText(LoginActivity.this,"LOGIN SUCCESSFUL", Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(LoginActivity.this,UserActivity.class));
+                    startActivity(new Intent(LoginActivity.this,AdminActivity.class));
                 }else {
                     Toast.makeText(LoginActivity.this,"LOGIN FAILED", Toast.LENGTH_SHORT).show();
                 }
