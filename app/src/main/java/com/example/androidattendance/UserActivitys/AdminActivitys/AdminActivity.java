@@ -1,4 +1,4 @@
-package com.example.androidattendance.Activitys;
+package com.example.androidattendance.UserActivitys.AdminActivitys;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -8,9 +8,8 @@ import android.os.Bundle;
 import android.view.View;
 
 
-import com.example.androidattendance.AdminFragments.AdminMainMenuFragment;
+
 import com.example.androidattendance.R;
-import com.example.androidattendance.User.RegisterUser;
 
 public class AdminActivity extends AppCompatActivity {
 
@@ -18,9 +17,6 @@ public class AdminActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin);
-
-        Toolbar AppBar=findViewById(R.id.AppBar);
-        setSupportActionBar(AppBar);
 
 
     }

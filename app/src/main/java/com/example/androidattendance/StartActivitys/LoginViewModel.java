@@ -1,4 +1,4 @@
-package com.example.androidattendance.Activitys;
+package com.example.androidattendance.StartActivitys;
 
 import android.app.Application;
 

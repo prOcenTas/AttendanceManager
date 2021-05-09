@@ -1,4 +1,4 @@
-package com.example.androidattendance.User;
+package com.example.androidattendance.UserActivitys.AdminActivitys;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,23 +10,19 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.androidattendance.Activitys.AdminActivity;
-import com.example.androidattendance.Activitys.LoginActivity;
-import com.example.androidattendance.AdminFragments.AdminMainMenuFragment;
+import com.example.androidattendance.StartActivitys.LoginActivity;
 import com.example.androidattendance.R;
+import com.example.androidattendance.User.User;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
 public class RegisterUser extends AppCompatActivity {
 
-    private EditText registerEmail,registerPassword,registerType;
+    private EditText registerEmail,registerPassword,registerType,registerPhoneNu;
     private Button registerButton;
 
     private FirebaseAuth fireBaseAuth;
@@ -43,6 +39,7 @@ public class RegisterUser extends AppCompatActivity {
         registerPassword=(EditText) findViewById(R.id.registerPassword);
         registerButton=(Button) findViewById(R.id.registerButton);
         registerType=(EditText) findViewById(R.id.registerType);
+        registerPhoneNu=(EditText) findViewById(R.id.phoneNu);
 
         fireBaseAuth=FirebaseAuth.getInstance();
 
@@ -55,15 +52,14 @@ public class RegisterUser extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(validate()){
-//                    firebaseDatabase=FirebaseDatabase.getInstance();
-
                     String email = registerEmail.getText().toString();
                     String password = registerPassword.getText().toString();
                     String type=registerType.getText().toString();
+                    String phoneNu=registerPhoneNu.getText().toString();
 
-                    User usersInfo=new User(email,password,type);
-                    reference.child(type).setValue(usersInfo);
-                    //addDatatoFirebase(email,password,type);
+                    User usersInfo=new User(email,password,type,phoneNu);
+                    reference.child(email).setValue(usersInfo);
+
 
                     fireBaseAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
@@ -88,8 +84,9 @@ public class RegisterUser extends AppCompatActivity {
         String name = registerEmail.getText().toString();
         String password = registerPassword.getText().toString();
         String type=registerType.getText().toString();
+        String phoneNu=registerPhoneNu.getText().toString();
 
-        if(name.isEmpty() && password.isEmpty() || type.isEmpty()){
+        if(name.isEmpty() && password.isEmpty() && phoneNu.isEmpty() || type.isEmpty()){
             Toast.makeText(this,"Please Enter all details",Toast.LENGTH_SHORT).show();
         }else{
             result =true;

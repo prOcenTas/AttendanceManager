@@ -2,13 +2,14 @@ package com.example.androidattendance.User;
 
 public class User {
 
-   private String email,password,type;
+   private String email,password,type,phoneNu;
 
-    public User(String email,String password,String type)
+    public User(String email,String password,String type,String phoneNu)
     {
         this.email=email;
         this.password=password;
         this.type=type;
+        this.phoneNu=phoneNu;
     }
 
     public String getEmail() {
@@ -23,6 +24,10 @@ public class User {
         return type;
     }
 
+    public String getPhoneNu() {
+        return phoneNu;
+    }
+
     public void setEmail(String email) {
         this.email = email;
     }
@@ -33,5 +38,9 @@ public class User {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public void setPhoneNu(String phoneNu) {
+        this.phoneNu = phoneNu;
     }
 }

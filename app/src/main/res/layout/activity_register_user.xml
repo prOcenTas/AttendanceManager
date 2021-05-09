@@ -4,12 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".User.RegisterUser">
+    tools:context=".UserActivitys.AdminActivitys.RegisterUser">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".User.RegisterUser">
+        tools:context=".UserActivitys.AdminActivitys.RegisterUser">
         <EditText
             android:id="@+id/registerPassword"
             android:layout_width="wrap_content"
@@ -39,6 +39,20 @@
             android:padding="20dp" />
 
         <EditText
+            android:id="@+id/phoneNu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:autoSizeMaxTextSize="2dp"
+            android:inputType="text"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="100dp"
+            android:layout_marginTop="460dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:hint="phoneNu"
+            android:padding="20dp" />
+
+        <EditText
             android:id="@+id/registerType"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -46,7 +60,7 @@
             android:inputType="text"
             android:layout_marginRight="20dp"
             android:layout_marginLeft="100dp"
-            android:layout_marginTop="450dp"
+            android:layout_marginTop="535dp"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
             android:hint="admin/teacher"
@@ -57,7 +71,11 @@
             android:id="@+id/registerButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="168dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="100dp"
+                android:layout_marginTop="610dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
             android:background="@drawable/button"
             android:text="Register"
             android:textColor="#ffff"

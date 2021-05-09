@@ -1,4 +1,4 @@
-package com.example.androidattendance.Activitys;
+package com.example.androidattendance.StartActivitys;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.example.androidattendance.R;
-import com.example.androidattendance.User.RegisterUser;
+import com.example.androidattendance.UserActivitys.AdminActivitys.RegisterUser;
 
 public class MainActivity extends AppCompatActivity {
 
