@@ -58,7 +58,25 @@ public class AdminAddStudent extends AppCompatActivity {
 
 
     }
+    public void addStudents(View view) {
+        String studentId=studentNumber.getText().toString();
+        String name=studentName.getText().toString();
+        String lecture=lectureName.getText().toString();
+        if(checkLectureName())
+        {
+            if(validate())
+            {
+                Student studentHelper=new Student(studentId,name);
+                //adding to the Student database tab
+                referenceStudent.child(studentId).setValue(studentHelper);
 
+                //adding student to the specific lecture
+                referenceLecture.child(lecture).child(studentId).setValue(studentHelper);
+                Toast.makeText(AdminAddStudent.this,"Success!",Toast.LENGTH_SHORT).show();
+            }
+        }
+
+    }
 
     public void deleteStudents(View v)
     {
@@ -80,6 +98,21 @@ public class AdminAddStudent extends AppCompatActivity {
         }
     }
 
+    private boolean checkLectureName()
+    {
+        boolean result = false;
+        String lecture=lectureName.getText().toString();
+
+        if(!lecture.equals("ADS") || !lecture.equals("ESW") || !lecture.equals("AND") || !lecture.equals("DAI"))
+        {
+            Toast.makeText(this,"Please Enter the right Lecture",Toast.LENGTH_SHORT).show();
+        }
+        else{
+            result=true;
+        }
+        return result;
+    }
+
     private boolean validate()
     {
         boolean result = false;
@@ -95,22 +128,4 @@ public class AdminAddStudent extends AppCompatActivity {
         return result;
     }
 
-    public void addStudents(View view) {
-        String studentId=studentNumber.getText().toString();
-        String name=studentName.getText().toString();
-        String lecture=lectureName.getText().toString();
-        if(validate())
-        {
-            Student studentHelper=new Student(studentId,name);
-            //adding to the Student database tab
-            referenceStudent.child(studentId).setValue(studentHelper);
-
-            //adding student to the specific lecture
-            referenceLecture.child(lecture).child(studentId).setValue(studentHelper);
-            Toast.makeText(AdminAddStudent.this,"Success!",Toast.LENGTH_SHORT).show();
-        }
-        else{
-            Toast.makeText(AdminAddStudent.this,"Please Fill Fields",Toast.LENGTH_SHORT).show();
-        }
-    }
 }
