@@ -2,6 +2,7 @@ package com.example.androidattendance.UserActivitys.AdminActivitys;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,83 +11,70 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.androidattendance.StartActivitys.LoginActivity;
 import com.example.androidattendance.R;
 import com.example.androidattendance.User.User;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
-import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class RegisterUser extends AppCompatActivity {
 
-    private EditText registerEmail,registerPassword,registerType,registerPhoneNu;
+    private EditText registerUserName,registerPassword,registerType,registerPhoneNu,registerName;
     private Button registerButton;
 
-    private FirebaseAuth fireBaseAuth;
+
     private FirebaseDatabase firebaseDatabase;
     private DatabaseReference reference;
-    User userInfo;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_user);
+        Toolbar toolbar = findViewById(R.id.AppBar);
+        setSupportActionBar(toolbar);
 
-
-        registerEmail=(EditText) findViewById(R.id.registerEmail);
+        registerUserName=(EditText) findViewById(R.id.registerEmail);
         registerPassword=(EditText) findViewById(R.id.registerPassword);
         registerButton=(Button) findViewById(R.id.registerButton);
         registerType=(EditText) findViewById(R.id.registerType);
         registerPhoneNu=(EditText) findViewById(R.id.phoneNu);
+        registerName=(EditText) findViewById(R.id.registerName);
 
-        fireBaseAuth=FirebaseAuth.getInstance();
 
         firebaseDatabase=FirebaseDatabase.getInstance();
         reference=firebaseDatabase.getReference("user");
 
-//        User userInfo=new User();
-
+        //first we go through validation and if it passes we store the data in the database
         registerButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 if(validate()){
-                    String email = registerEmail.getText().toString();
+                    String userName = registerUserName.getText().toString();
                     String password = registerPassword.getText().toString();
                     String type=registerType.getText().toString();
                     String phoneNu=registerPhoneNu.getText().toString();
+                    String name=registerName.getText().toString();
 
-                    User usersInfo=new User(email,password,type,phoneNu);
-                    reference.child(email).setValue(usersInfo);
+                    User usersInfo=new User(userName,password,type,phoneNu,name);
+                    reference.child(userName).setValue(usersInfo);
 
-
-                    fireBaseAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                        @Override
-                        public void onComplete(@NonNull Task<AuthResult> task) {
-                            if(task.isSuccessful()){
-
-                                Toast.makeText(RegisterUser.this,"Registration Successful",Toast.LENGTH_SHORT).show();
-                                startActivity(new Intent(RegisterUser.this, LoginActivity.class));
-                            }else{
-                                Toast.makeText(RegisterUser.this,"Registration Failed",Toast.LENGTH_SHORT).show();
-                            }
-
-                        }
-                    });
                 }
             }
         });
     }
 
+    //validating if the EditTexts are not empty
     private Boolean validate(){
         boolean result = false;
-        String name = registerEmail.getText().toString();
+        String user = registerUserName.getText().toString();
         String password = registerPassword.getText().toString();
         String type=registerType.getText().toString();
         String phoneNu=registerPhoneNu.getText().toString();
+        String name=registerName.getText().toString();
 
-        if(name.isEmpty() && password.isEmpty() && phoneNu.isEmpty() || type.isEmpty()){
+
+        if(user.isEmpty() && password.isEmpty() && phoneNu.isEmpty() && name.isEmpty() || type.isEmpty()){
             Toast.makeText(this,"Please Enter all details",Toast.LENGTH_SHORT).show();
         }else{
             result =true;
@@ -94,32 +82,4 @@ public class RegisterUser extends AppCompatActivity {
         return result;
     }
 
-//    private void addDatatoFirebase(String email, String password, String type) {
-//        // below 3 lines of code is used to set
-//        // data in our object class.
-//        userInfo.setEmail(email);
-//        userInfo.setPassword(password);
-//        userInfo.setType(type);
-//        // we are use add value event listener method
-//        // which is called with database reference.
-//        reference.addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                // inside the method of on Data change we are setting
-//                // our object class to our database reference.
-//                // data base reference will sends data to firebase.
-//                reference.setValue(userInfo);
-//
-//                // after adding this data we are showing toast message.
-//                Toast.makeText(RegisterUser.this, "data added", Toast.LENGTH_SHORT).show();
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError error) {
-//                // if the data is not added or it is cancelled then
-//                // we are displaying a failure toast message.
-//                Toast.makeText(RegisterUser.this, "Fail to add data " + error, Toast.LENGTH_SHORT).show();
-//            }
-//        });
-//    }
 }

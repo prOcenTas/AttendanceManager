@@ -6,6 +6,23 @@
     android:layout_height="match_parent"
     tools:context=".UserActivitys.AdminActivitys.AdminActivity">
 
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/AppBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/Theme.AndroidAttendance.AppBarOverlay"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/Theme.AndroidAttendance.PopupOverlay"
+            app:title="Attendance Manager"
+            android:layout_gravity="center"/>
+
+    </com.google.android.material.appbar.AppBarLayout>
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -14,10 +31,9 @@
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/AppBar">
 
         <TextView
-            android:id="@+id/welcomingText"
             android:layout_width="200dp"
             android:layout_height="36dp"
             android:layout_marginStart="8dp"
@@ -30,7 +46,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/welcomingUser_username"
+            android:id="@+id/welcomingUser"
             android:layout_width="200dp"
             android:layout_height="36dp"
             android:gravity="left"
@@ -45,20 +61,20 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/button3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@drawable/button"
+        android:onClick="register"
         android:text="Register Teacher"
-        app:layout_constraintBottom_toTopOf="@+id/button3"
+        android:textColor="#ffff"
+        app:layout_constraintBottom_toTopOf="@+id/addStudentButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-        android:background="@drawable/button"
-        android:textColor="#ffff"
-        android:onClick="register"/>
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/addStudentButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/button"
@@ -73,32 +89,36 @@
         app:layout_constraintVertical_bias="0.461" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/studentAttendanceButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="69dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
         android:layout_marginBottom="173dp"
-        android:text="Check Students"
-        app:layout_constraintBottom_toTopOf="@+id/imageView"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button3"
-        android:layout_marginLeft="10dp"
         android:background="@drawable/button"
-        android:textColor="#ffff"/>
-
-    <Button
-        android:id="@+id/button5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="69dp"
-        android:layout_marginBottom="173dp"
         android:text="Student Attendance"
+        android:textColor="#ffff"
         app:layout_constraintBottom_toTopOf="@+id/imageView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button3"
-        android:layout_marginRight="10dp"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <Button
+        android:id="@+id/checkStudentButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="69dp"
+        android:layout_marginBottom="173dp"
         android:background="@drawable/button"
-        android:textColor="#ffff"/>
+        android:text="Check Students"
+        android:textColor="#ffff"
+        app:layout_constraintBottom_toTopOf="@+id/imageView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button3"
+        app:layout_constraintVertical_bias="1.0" />
 
     <ImageView
         android:id="@+id/imageView"
@@ -107,9 +127,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        android:src="@drawable/vialogo_main"
         />
-
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

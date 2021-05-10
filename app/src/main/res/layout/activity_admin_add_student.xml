@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".UserActivitys.AdminActivitys.RegisterUser">
+    tools:context=".UserActivitys.AdminActivitys.addStudent.AdminAddStudent">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/AppBar"
@@ -30,34 +30,35 @@
 
         <EditText
 
-            android:id="@+id/registerEmail"
+            android:id="@+id/studentId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:autoSizeMaxTextSize="2dp"
+            android:inputType="number"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="100dp"
+            android:layout_marginTop="225dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:hint="studentId"
+            android:padding="20dp" />
+
+        <EditText
+            android:id="@+id/studentName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:autoSizeMaxTextSize="2dp"
             android:inputType="text"
             android:layout_marginRight="20dp"
             android:layout_marginLeft="100dp"
-            android:layout_marginTop="225dp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:hint="Username"
-            android:padding="20dp" />
-
-        <EditText
-            android:id="@+id/registerPassword"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:autoSizeMaxTextSize="2dp"
-            android:inputType="textPassword"
-            android:layout_marginRight="20dp"
-            android:layout_marginLeft="100dp"
             android:layout_marginTop="300dp"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
-            android:hint="Password"
+            android:hint="Full Name"
             android:padding="20dp" />
+
         <EditText
-            android:id="@+id/registerName"
+            android:id="@+id/lecture"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:autoSizeMaxTextSize="2dp"
@@ -67,54 +68,64 @@
             android:layout_marginTop="375dp"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
-            android:hint="Name"
+            android:hint="Lecture"
             android:padding="20dp" />
 
-        <EditText
-            android:id="@+id/phoneNu"
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:autoSizeMaxTextSize="2dp"
-            android:inputType="text"
             android:layout_marginRight="20dp"
-            android:layout_marginLeft="100dp"
-            android:layout_marginTop="460dp"
+            android:layout_marginLeft="200dp"
+            android:layout_marginTop="375dp"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
-            android:hint="phoneNu"
-            android:padding="20dp" />
+            android:text="(ADS / ESW / DAI / AND)"
+            android:padding="20dp"
+            />
 
-        <EditText
-            android:id="@+id/registerType"
+
+        <Button
+            android:id="@+id/addButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:autoSizeMaxTextSize="2dp"
-            android:inputType="text"
             android:layout_marginRight="20dp"
             android:layout_marginLeft="100dp"
-            android:layout_marginTop="535dp"
+            android:layout_marginTop="450dp"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
-            android:hint="admin/teacher"
-            android:padding="20dp" />
-
-
-            <Button
-            android:id="@+id/registerButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-                android:layout_marginRight="20dp"
-                android:layout_marginLeft="100dp"
-                android:layout_marginTop="610dp"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"
             android:background="@drawable/button"
-            android:text="Register"
+            android:text="Add"
+            android:textColor="#ffff"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/deleteButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="200dp"
+            android:layout_marginTop="450dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:background="@drawable/button2"
+            android:text="remove from course"
             android:textColor="#ffff"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
 
+
     </RelativeLayout>
 
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:src="@drawable/vialogo_main"
+        />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 
 import com.example.androidattendance.R;
@@ -29,7 +30,7 @@ import com.google.firebase.database.ValueEventListener;
 
 
 public class LoginActivity extends AppCompatActivity {
-    private EditText loginEmail,loginPassword;
+    private EditText loginUsername,loginPassword;
     private Button loginButton;
 
     private FirebaseAuth firebaseAuth;
@@ -37,33 +38,27 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        Toolbar toolbar = findViewById(R.id.AppBar);
+        setSupportActionBar(toolbar);
 
-
-        loginEmail=(EditText) findViewById(R.id.loginEmail);
+        loginUsername=(EditText) findViewById(R.id.loginEmail);
         loginPassword=(EditText) findViewById(R.id.loginPassword);
 
-//        firebaseAuth=FirebaseAuth.getInstance();
-//
-//        FirebaseUser user=firebaseAuth.getCurrentUser();
-//        if(user != null)
-//        {
-//            startActivity(new Intent(this, UserActivity.class));
-//        }
 
     }
 
     private boolean validateUsername()
     {
-        String val=loginEmail.getText().toString();
+        String val=loginUsername.getText().toString();
 
         if(val.isEmpty())
         {
-            loginEmail.setError("Field cannot be empty");
+            loginUsername.setError("Field cannot be empty");
             return false;
         }
         else
         {
-            loginEmail.setError(null);
+            loginUsername.setError(null);
             return true;
         }
     }
@@ -94,19 +89,19 @@ public class LoginActivity extends AppCompatActivity {
         {
             checkUser();
         }
-        //validate(loginEmail.getText().toString(), loginPassword.getText().toString());
+
     }
 
     private void checkUser()
     {
-        String inputEmail=loginEmail.getText().toString();
+        String inputEmail=loginUsername.getText().toString();
         String inputPassword=loginPassword.getText().toString();
 
         //check references in the user tab
         DatabaseReference reference= FirebaseDatabase.getInstance().getReference("user");
 
         //selecting by what we determine the search
-        Query checkUser=reference.orderByChild("email").equalTo(inputEmail);
+        Query checkUser=reference.orderByChild("userName").equalTo(inputEmail);
 
         //getting data to the snapshot from DB
         checkUser.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -114,29 +109,32 @@ public class LoginActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if(snapshot.exists())
                 {
-                    loginEmail.setError(null);
+                    loginUsername.setError(null);
 
                     String passwordFromDb=snapshot.child(inputEmail).child("password").getValue(String.class);
                     if(passwordFromDb.equals(inputPassword))
                     {
-                        loginEmail.setError(null);
+                        loginUsername.setError(null);
 
-                        String emailFromDb=snapshot.child(inputEmail).child("email").getValue(String.class);
+                        String emailFromDb=snapshot.child(inputEmail).child("userName").getValue(String.class);
                         String phoneNuFromDb=snapshot.child(inputEmail).child("phoneNu").getValue(String.class);
                         String typeFromDb=snapshot.child(inputEmail).child("type").getValue(String.class);
+                        String nameFromDb=snapshot.child(inputEmail).child("name").getValue(String.class);
 
 
                         //creating intent for AdminView
                         Intent adminIntent=new Intent(LoginActivity.this,AdminActivity.class);
-                        adminIntent.putExtra("email",emailFromDb);
+                        adminIntent.putExtra("userName",emailFromDb);
                         adminIntent.putExtra("phoneNu",phoneNuFromDb);
                         adminIntent.putExtra("type",typeFromDb);
+                        adminIntent.putExtra("name",nameFromDb);
 
                         //creating intent for UserView
                         Intent userIntent=new Intent(LoginActivity.this,UserActivity.class);
-                        userIntent.putExtra("email",emailFromDb);
-                        adminIntent.putExtra("phoneNu",phoneNuFromDb);
-                        adminIntent.putExtra("type",typeFromDb);
+                        userIntent.putExtra("userName",emailFromDb);
+                        userIntent.putExtra("phoneNu",phoneNuFromDb);
+                        userIntent.putExtra("type",typeFromDb);
+                        userIntent.putExtra("name",nameFromDb);
                         if(typeFromDb.equals("admin"))
                         {
                             startActivity(adminIntent);
@@ -154,8 +152,8 @@ public class LoginActivity extends AppCompatActivity {
                 }
                 else
                 {
-                    loginEmail.setError("No such User found");
-                    loginEmail.requestFocus();
+                    loginUsername.setError("No such User found");
+                    loginUsername.requestFocus();
                 }
             }
 
@@ -166,21 +164,6 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
-
-//    private void validate(String username,String password)
-//    {
-//        firebaseAuth.signInWithEmailAndPassword(username,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-//            @Override
-//            public void onComplete(@NonNull Task<AuthResult> task) {
-//                if(task.isSuccessful()){
-//                    Toast.makeText(LoginActivity.this,"LOGIN SUCCESSFUL", Toast.LENGTH_SHORT).show();
-//                    startActivity(new Intent(LoginActivity.this, AdminActivity.class));
-//                }else {
-//                    Toast.makeText(LoginActivity.this,"LOGIN FAILED", Toast.LENGTH_SHORT).show();
-//                }
-//            }
-//        });
-//    }
 
 }
 
