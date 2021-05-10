@@ -11,9 +11,7 @@ import android.widget.TextView;
 
 
 import com.example.androidattendance.R;
-import com.example.androidattendance.UserActivitys.AdminActivitys.addStudent.AdminAddStudent;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
+import com.example.androidattendance.UserActivitys.AdminActivitys.AddingStudent.AdminAddStudent;
 
 public class AdminActivity extends AppCompatActivity {
     Button addStudent, studentAttendance, checkStudent;
@@ -24,7 +22,7 @@ public class AdminActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin);
-        Toolbar toolbar = findViewById(R.id.AppBar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         addStudent=findViewById(R.id.addStudentButton);
@@ -38,17 +36,16 @@ public class AdminActivity extends AppCompatActivity {
         welcmUser.setText(namePassed);
 
 
-        addStudent.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(AdminActivity.this, AdminAddStudent.class));
-            }
-        });
     }
 
     public void register(View view)
     {
         startActivity(new Intent(this,RegisterUser.class));
+    }
+
+    public void manageStudent(View view)
+    {
+        startActivity(new Intent(AdminActivity.this, AdminAddStudent.class));
     }
 
 

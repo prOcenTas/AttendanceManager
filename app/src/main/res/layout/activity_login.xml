@@ -7,23 +7,15 @@
     tools:context=".StartActivitys.LoginActivity">
 
 
-    <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/AppBar"
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:theme="@style/Theme.AndroidAttendance.AppBarOverlay"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            app:popupTheme="@style/Theme.AndroidAttendance.PopupOverlay"
-            app:title="Attendance Manager"
-            android:layout_gravity="center"/>
-
-    </com.google.android.material.appbar.AppBarLayout>
+        android:layout_height="?attr/actionBarSize"
+        android:layout_gravity="center"
+        android:background="?attr/colorPrimary"
+        app:layout_constraintTop_toTopOf="parent"
+        app:popupTheme="@style/Theme.AndroidAttendance.PopupOverlay"
+        app:title="Attendance Manager" />
 
     <TextView
         android:id="@+id/textView"

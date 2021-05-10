@@ -1,4 +1,4 @@
-package com.example.androidattendance.UserActivitys.AdminActivitys.addStudent;
+package com.example.androidattendance.UserActivitys.AdminActivitys.AddingStudent;
 
 public class Student {
     private String studentId,fullName;

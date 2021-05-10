@@ -20,8 +20,8 @@
             android:name=".UserActivitys.AdminActivitys.AdminActivity"
             android:parentActivityName=".StartActivitys.LoginActivity"
             android:theme="@style/Theme.AndroidAttendance.NoActionBar" />
-        <activity android:name=".UserActivitys.AdminActivitys.addStudent.AdminAddStudent"
-            android:parentActivityName=".UserActivitys.AdminActivitys.AdminActivity"
+        <activity android:name=".UserActivitys.AdminActivitys.AddingStudent.AdminAddStudent"
+
             android:theme="@style/Theme.AndroidAttendance.NoActionBar" />
         <activity
             android:name=".StartActivitys.LoginActivity"
