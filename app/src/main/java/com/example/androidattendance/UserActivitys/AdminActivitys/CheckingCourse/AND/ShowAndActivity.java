@@ -1,4 +1,4 @@
-package com.example.androidattendance.UserActivitys.AdminActivitys.CheckingCourse.ADS;
+package com.example.androidattendance.UserActivitys.AdminActivitys.CheckingCourse.AND;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
@@ -20,16 +20,17 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class ShowAdsActivity extends AppCompatActivity {
+public class ShowAndActivity extends AppCompatActivity {
+
     private RecyclerView recyclerView;
-    private DatabaseReference referenceLecture=FirebaseDatabase.getInstance().getReference("lecture").child("ADS");
+    private DatabaseReference referenceLecture= FirebaseDatabase.getInstance().getReference("lecture").child("AND");
     private MyAdapter adapter;
     private ArrayList<Model> list;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_show_ads);
+        setContentView(R.layout.activity_show_and);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         ActionBar ab=getSupportActionBar();

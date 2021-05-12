@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".UserActivitys.AdminActivitys.CheckingCourse.ADS.ShowAdsActivity">
+    tools:context=".UserActivitys.AdminActivitys.CheckingCourse.AND.ShowAndActivity">
+
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
@@ -14,7 +15,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:popupTheme="@style/Theme.AndroidAttendance.PopupOverlay"
         app:title="Attendance Manager" />
-
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
@@ -26,4 +26,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="55dp"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

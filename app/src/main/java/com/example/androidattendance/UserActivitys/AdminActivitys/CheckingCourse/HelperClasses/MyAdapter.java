@@ -1,4 +1,4 @@
-package com.example.androidattendance.UserActivitys.AdminActivitys.CheckingCourse.ADS;
+package com.example.androidattendance.UserActivitys.AdminActivitys.CheckingCourse.HelperClasses;
 
 import android.content.Context;
 import android.view.LayoutInflater;
