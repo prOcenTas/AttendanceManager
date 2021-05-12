@@ -8,7 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.example.androidattendance.R;
-import com.example.androidattendance.UserActivitys.AdminActivitys.RegisterUser;
+import com.example.androidattendance.UserActivitys.AdminActivitys.RegisteringTeacher.RegisterUser;
 
 public class MainActivity extends AppCompatActivity {
 

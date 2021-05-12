@@ -1,5 +1,6 @@
 package com.example.androidattendance.UserActivitys.AdminActivitys.AddingStudent;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
@@ -29,6 +30,8 @@ public class AdminAddStudent extends AppCompatActivity {
         setContentView(R.layout.activity_admin_add_student);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        ActionBar ab=getSupportActionBar();
+        ab.setDisplayHomeAsUpEnabled(true);
 
         studentNumber=(EditText)findViewById(R.id.studentId);
         studentName=(EditText)findViewById(R.id.studentName);
@@ -41,20 +44,6 @@ public class AdminAddStudent extends AppCompatActivity {
         referenceLecture=FirebaseDatabase.getInstance().getReference("lecture");
 
         //check if the fields are not empty and then proceed with inputting the data
-//        addButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                addStudents(v);
-//            }
-//        });
-
-        //deleting student from the course
-//        delButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//               deleteStudents();
-//            }
-//        });
 
 
     }
@@ -98,6 +87,7 @@ public class AdminAddStudent extends AppCompatActivity {
         }
     }
 
+    //making sure that the Lecture name is indeed correct
     private boolean checkLectureName()
     {
         boolean result = false;
@@ -113,6 +103,7 @@ public class AdminAddStudent extends AppCompatActivity {
         return result;
     }
 
+    //making sure the data fields are not empty
     private boolean validate()
     {
         boolean result = false;

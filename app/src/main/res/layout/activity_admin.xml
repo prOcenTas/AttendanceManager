@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".UserActivitys.AdminActivitys.AdminActivity">
 
-
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
@@ -59,12 +58,13 @@
         android:id="@+id/button3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="108dp"
         android:background="@drawable/button"
         android:onClick="register"
         android:text="Register Teacher"
         android:textColor="#ffff"
-        app:layout_constraintBottom_toTopOf="@+id/addStudentButton"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.508"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
@@ -73,48 +73,32 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/button"
-        android:text="Add a Student"
-        android:textColor="#ffff"
         android:onClick="manageStudent"
+        android:text="Manage Students"
+        android:textColor="#ffff"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/imageView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.513"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button3"
+        app:layout_constraintVertical_bias="0.14" />
+
+    <Button
+        android:id="@+id/checkCourseButton"
+        android:layout_width="152dp"
+        android:layout_height="60dp"
+        android:layout_marginBottom="136dp"
+        android:background="@drawable/button"
+        android:text="Check Course"
+        android:textColor="#ffff"
+        android:onClick="checkCourse"
         app:layout_constraintBottom_toTopOf="@+id/imageView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-        app:layout_constraintVertical_bias="0.461" />
-
-    <Button
-        android:id="@+id/studentAttendanceButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="69dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginBottom="173dp"
-        android:background="@drawable/button"
-        android:text="Student Attendance"
-        android:textColor="#ffff"
-        app:layout_constraintBottom_toTopOf="@+id/imageView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button3"
-        app:layout_constraintVertical_bias="1.0" />
-
-    <Button
-        android:id="@+id/checkStudentButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="69dp"
-        android:layout_marginBottom="173dp"
-        android:background="@drawable/button"
-        android:text="Check Students"
-        android:textColor="#ffff"
-        app:layout_constraintBottom_toTopOf="@+id/imageView"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button3"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toBottomOf="@+id/addStudentButton"
+        app:layout_constraintVertical_bias="0.735" />
 
     <ImageView
         android:id="@+id/imageView"

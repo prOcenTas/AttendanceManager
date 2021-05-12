@@ -1,7 +1,8 @@
 package com.example.androidattendance.UserActivitys.AdminActivitys.AddingStudent;
 
 public class Student {
-    private String studentId,fullName;
+    private String fullName;
+    private String studentId;
 
     public Student(String studentId, String fullName)
     {

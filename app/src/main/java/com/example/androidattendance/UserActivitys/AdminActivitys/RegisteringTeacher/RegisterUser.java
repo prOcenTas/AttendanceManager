@@ -1,6 +1,7 @@
-package com.example.androidattendance.UserActivitys.AdminActivitys;
+package com.example.androidattendance.UserActivitys.AdminActivitys.RegisteringTeacher;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
@@ -33,6 +34,8 @@ public class RegisterUser extends AppCompatActivity {
         setContentView(R.layout.activity_register_user);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        ActionBar ab=getSupportActionBar();
+        ab.setDisplayHomeAsUpEnabled(true);
 
         registerUserName=(EditText) findViewById(R.id.registerEmail);
         registerPassword=(EditText) findViewById(R.id.registerPassword);

@@ -12,6 +12,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AndroidAttendance">
+        <activity android:name=".UserActivitys.AdminActivitys.CheckingCourse.ADS.ShowAdsActivity"
+            android:parentActivityName=".UserActivitys.AdminActivitys.CheckingCourse.CheckCourse"
+            android:theme="@style/Theme.AndroidAttendance.NoActionBar"/>
+        <activity
+            android:name=".UserActivitys.AdminActivitys.CheckingCourse.CheckCourse"
+            android:parentActivityName=".UserActivitys.AdminActivitys.AdminActivity"
+            android:theme="@style/Theme.AndroidAttendance.NoActionBar" />
         <activity
             android:name=".UserActivitys.TeacherActivitys.UserActivity"
             android:parentActivityName=".StartActivitys.LoginActivity"
@@ -20,15 +27,16 @@
             android:name=".UserActivitys.AdminActivitys.AdminActivity"
             android:parentActivityName=".StartActivitys.LoginActivity"
             android:theme="@style/Theme.AndroidAttendance.NoActionBar" />
-        <activity android:name=".UserActivitys.AdminActivitys.AddingStudent.AdminAddStudent"
-
+        <activity
+            android:name=".UserActivitys.AdminActivitys.AddingStudent.AdminAddStudent"
+            android:parentActivityName=".UserActivitys.AdminActivitys.AdminActivity"
             android:theme="@style/Theme.AndroidAttendance.NoActionBar" />
         <activity
             android:name=".StartActivitys.LoginActivity"
             android:parentActivityName=".StartActivitys.MainActivity"
             android:theme="@style/Theme.AndroidAttendance.NoActionBar" />
         <activity
-            android:name=".UserActivitys.AdminActivitys.RegisterUser"
+            android:name=".UserActivitys.AdminActivitys.RegisteringTeacher.RegisterUser"
             android:parentActivityName=".UserActivitys.AdminActivitys.AdminActivity"
             android:theme="@style/Theme.AndroidAttendance.NoActionBar" />
         <activity
