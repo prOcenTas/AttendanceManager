@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".StartActivitys.MainActivity"
-    android:layout_centerHorizontal="true">
+    tools:context=".UserActivitys.TeacherActivitys.Attendance.CheckAttendance">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
@@ -17,27 +16,26 @@
         app:popupTheme="@style/Theme.AndroidAttendance.PopupOverlay"
         app:title="Attendance Manager" />
 
-    <Button
-        android:id="@+id/loginButton"
+    <TextView
+        android:id="@+id/className"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/button"
-        android:onClick="login"
-        android:text="Log-In"
-        android:textColor="#ffff"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="287dp" />
+        android:layout_alignTop="@+id/toolbar"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="142dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="120dp"
 
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:fontFamily="serif"
+        android:text="------"
+        android:textAllCaps="true"
+        android:textFontWeight="15dp"
+        android:textSize="35dp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:src="@drawable/vialogo_main"/>
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        android:layout_marginRight="120dp"
+        android:layout_marginLeft="142dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

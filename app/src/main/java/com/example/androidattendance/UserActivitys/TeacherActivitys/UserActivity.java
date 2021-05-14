@@ -8,19 +8,61 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageButton;
 
 import com.example.androidattendance.R;
 import com.example.androidattendance.StartActivitys.LoginActivity;
 import com.example.androidattendance.UserActivitys.AdminActivitys.AdminActivity;
+import com.example.androidattendance.UserActivitys.TeacherActivitys.Attendance.CheckAttendance;
 
 public class UserActivity extends AppCompatActivity {
-
+    ImageButton ADSbutton,ESWbutton,ANDbutton,DAIbutton;
+    int request_code=1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        ADSbutton=findViewById(R.id.ADSbutton);
+        ANDbutton=findViewById(R.id.ANDbutton);
+        DAIbutton=findViewById(R.id.DAIbutton);
+        ESWbutton=findViewById(R.id.ESWbutton);
+    }
+
+    public void android(View view) {
+        String className="AND";
+
+        Intent intent=new Intent(UserActivity.this, CheckAttendance.class);
+        intent.putExtra("Lecture",className);
+        startActivityForResult(intent,request_code);
+    }
+
+    public void embedded(View view) {
+        String className="ESW";
+
+        Intent intent=new Intent(UserActivity.this, CheckAttendance.class);
+        intent.putExtra("Classname",className);
+        startActivityForResult(intent,request_code);
+    }
+
+    public void dataWarehousing(View view) {
+        String className="DAI";
+
+        Intent intent=new Intent(UserActivity.this, CheckAttendance.class);
+        intent.putExtra("Classname",className);
+        startActivityForResult(intent,request_code);
+    }
+
+    public void algorithm(View view) {
+        String className="ADS";
+
+        Intent intent=new Intent(UserActivity.this, CheckAttendance.class);
+        intent.putExtra("Classname",className);
+        startActivityForResult(intent,request_code);
     }
 
     @Override

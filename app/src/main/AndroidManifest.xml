@@ -12,12 +12,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AndroidAttendance">
-        <activity android:name=".UserActivitys.AdminActivitys.CheckingCourse.ESW.ShowEswActivity"
-            android:parentActivityName=".UserActivitys.AdminActivitys.CheckingCourse.CheckCourse"
+        <activity android:name=".UserActivitys.TeacherActivitys.Attendance.CheckAttendance"
+            android:parentActivityName=".UserActivitys.TeacherActivitys.UserActivity"
             android:theme="@style/Theme.AndroidAttendance.NoActionBar"/>
-        <activity android:name=".UserActivitys.AdminActivitys.CheckingCourse.DAI.ShowDaiActivity"
+        <activity
+            android:name=".UserActivitys.AdminActivitys.CheckingCourse.ESW.ShowEswActivity"
             android:parentActivityName=".UserActivitys.AdminActivitys.CheckingCourse.CheckCourse"
-            android:theme="@style/Theme.AndroidAttendance.NoActionBar"/>
+            android:theme="@style/Theme.AndroidAttendance.NoActionBar" />
+        <activity
+            android:name=".UserActivitys.AdminActivitys.CheckingCourse.DAI.ShowDaiActivity"
+            android:parentActivityName=".UserActivitys.AdminActivitys.CheckingCourse.CheckCourse"
+            android:theme="@style/Theme.AndroidAttendance.NoActionBar" />
         <activity
             android:name=".UserActivitys.AdminActivitys.CheckingCourse.AND.ShowAndActivity"
             android:parentActivityName=".UserActivitys.AdminActivitys.CheckingCourse.CheckCourse"
