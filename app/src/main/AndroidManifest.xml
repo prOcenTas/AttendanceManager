@@ -11,54 +11,39 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AndroidAttendance">
+        android:theme="@style/AppTheme">
         <activity android:name=".UserActivitys.TeacherActivitys.Attendance.CheckAttendance"
-            android:parentActivityName=".UserActivitys.TeacherActivitys.UserActivity"
-            android:theme="@style/Theme.AndroidAttendance.NoActionBar"/>
+            android:parentActivityName=".UserActivitys.TeacherActivitys.UserActivity" />
         <activity
             android:name=".UserActivitys.AdminActivitys.CheckingCourse.ESW.ShowEswActivity"
-            android:parentActivityName=".UserActivitys.AdminActivitys.CheckingCourse.CheckCourse"
-            android:theme="@style/Theme.AndroidAttendance.NoActionBar" />
+            android:parentActivityName=".UserActivitys.AdminActivitys.CheckingCourse.CheckCourse" />
         <activity
             android:name=".UserActivitys.AdminActivitys.CheckingCourse.DAI.ShowDaiActivity"
-            android:parentActivityName=".UserActivitys.AdminActivitys.CheckingCourse.CheckCourse"
-            android:theme="@style/Theme.AndroidAttendance.NoActionBar" />
+            android:parentActivityName=".UserActivitys.AdminActivitys.CheckingCourse.CheckCourse" />
         <activity
             android:name=".UserActivitys.AdminActivitys.CheckingCourse.AND.ShowAndActivity"
-            android:parentActivityName=".UserActivitys.AdminActivitys.CheckingCourse.CheckCourse"
-            android:theme="@style/Theme.AndroidAttendance.NoActionBar" />
+            android:parentActivityName=".UserActivitys.AdminActivitys.CheckingCourse.CheckCourse" />
         <activity
             android:name=".UserActivitys.AdminActivitys.CheckingCourse.ADS.ShowAdsActivity"
-            android:parentActivityName=".UserActivitys.AdminActivitys.CheckingCourse.CheckCourse"
-            android:theme="@style/Theme.AndroidAttendance.NoActionBar" />
+            android:parentActivityName=".UserActivitys.AdminActivitys.CheckingCourse.CheckCourse" />
         <activity
             android:name=".UserActivitys.AdminActivitys.CheckingCourse.CheckCourse"
-            android:parentActivityName=".UserActivitys.AdminActivitys.AdminActivity"
-            android:theme="@style/Theme.AndroidAttendance.NoActionBar" />
+            android:parentActivityName=".UserActivitys.AdminActivitys.AdminActivity" />
         <activity
             android:name=".UserActivitys.TeacherActivitys.UserActivity"
-            android:parentActivityName=".StartActivitys.LoginActivity"
-            android:theme="@style/Theme.AndroidAttendance.NoActionBar" />
+            android:parentActivityName=".StartActivitys.LoginActivity" />
         <activity
             android:name=".UserActivitys.AdminActivitys.AdminActivity"
-            android:parentActivityName=".StartActivitys.LoginActivity"
-            android:theme="@style/Theme.AndroidAttendance.NoActionBar" />
+            android:parentActivityName=".StartActivitys.LoginActivity" />
         <activity
             android:name=".UserActivitys.AdminActivitys.AddingStudent.AdminAddStudent"
-            android:parentActivityName=".UserActivitys.AdminActivitys.AdminActivity"
-            android:theme="@style/Theme.AndroidAttendance.NoActionBar" />
-        <activity
-            android:name=".StartActivitys.LoginActivity"
-            android:parentActivityName=".StartActivitys.MainActivity"
-            android:theme="@style/Theme.AndroidAttendance.NoActionBar" />
+            android:parentActivityName=".UserActivitys.AdminActivitys.AdminActivity" />
         <activity
             android:name=".UserActivitys.AdminActivitys.RegisteringTeacher.RegisterUser"
-            android:parentActivityName=".UserActivitys.AdminActivitys.AdminActivity"
-            android:theme="@style/Theme.AndroidAttendance.NoActionBar" />
+            android:parentActivityName=".UserActivitys.AdminActivitys.AdminActivity" />
         <activity
-            android:name=".StartActivitys.MainActivity"
-            android:parentActivityName=".StartActivitys.MainActivity"
-            android:theme="@style/Theme.AndroidAttendance.NoActionBar">
+            android:name=".StartActivitys.LoginActivity"
+            android:parentActivityName=".StartActivitys.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

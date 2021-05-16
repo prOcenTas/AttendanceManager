@@ -10,10 +10,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.androidattendance.R;
+import com.example.androidattendance.UserActivitys.TeacherActivitys.UserActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
@@ -28,6 +30,7 @@ public class CheckAttendance extends AppCompatActivity {
     private TextView className,attendanceCounter,date;
     private EditText studentId;
     private Button attendanceButton;
+    private ImageView backOut;
     int request_code=1;
     private int counter=0;
     @Override
@@ -53,6 +56,16 @@ public class CheckAttendance extends AppCompatActivity {
         int day = cal.get(Calendar.DAY_OF_MONTH);
         String dateNow = month+1 + "-" + day + "-" + year;
         date.setText(dateNow);
+
+        //backout to previous page
+        backOut=findViewById(R.id.toolbar_back);
+        backOut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(CheckAttendance.this, UserActivity.class);
+                startActivity(intent);
+            }
+        });
 
         attendanceCounter=findViewById(R.id.attendanceCounter);
         studentId=findViewById(R.id.studentId);

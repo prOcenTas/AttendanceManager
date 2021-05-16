@@ -10,10 +10,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.androidattendance.R;
 import com.example.androidattendance.User.User;
+import com.example.androidattendance.UserActivitys.AdminActivitys.AdminActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;
@@ -23,6 +25,7 @@ public class RegisterUser extends AppCompatActivity {
 
     private EditText registerUserName,registerPassword,registerType,registerPhoneNu,registerName;
     private Button registerButton;
+    private ImageView goBack;
 
 
     private FirebaseDatabase firebaseDatabase;
@@ -32,10 +35,7 @@ public class RegisterUser extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_user);
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        ActionBar ab=getSupportActionBar();
-        ab.setDisplayHomeAsUpEnabled(true);
+
 
         registerUserName=(EditText) findViewById(R.id.registerEmail);
         registerPassword=(EditText) findViewById(R.id.registerPassword);
@@ -44,6 +44,14 @@ public class RegisterUser extends AppCompatActivity {
         registerPhoneNu=(EditText) findViewById(R.id.phoneNu);
         registerName=(EditText) findViewById(R.id.registerName);
 
+        goBack=(ImageView)findViewById(R.id.toolbar_back);
+        goBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(RegisterUser.this, AdminActivity.class);
+                startActivity(intent);
+            }
+        });
 
         firebaseDatabase=FirebaseDatabase.getInstance();
         reference=firebaseDatabase.getReference("user");

@@ -10,6 +10,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 
@@ -20,7 +22,7 @@ import com.example.androidattendance.UserActivitys.AdminActivitys.CheckingCourse
 import com.example.androidattendance.UserActivitys.AdminActivitys.RegisteringTeacher.RegisterUser;
 
 public class AdminActivity extends AppCompatActivity {
-    Button addStudent, studentAttendance, checkCourse;
+    LinearLayout manageStudent, register, courses;
     TextView welcmUser;
 
 
@@ -28,11 +30,11 @@ public class AdminActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin);
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
 
-        addStudent=findViewById(R.id.addStudentButton);
-        checkCourse=findViewById(R.id.checkCourseButton);
+
+        manageStudent=findViewById(R.id.manageStudent);
+        courses=findViewById(R.id.courses);
+        register=findViewById(R.id.registerClick);
 
         //welcoming user with their name
         welcmUser=findViewById(R.id.welcomingUser);
@@ -58,21 +60,21 @@ public class AdminActivity extends AppCompatActivity {
         startActivity(new Intent(AdminActivity.this, CheckCourse.class));
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.toolbar, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId())
-        {
-            case R.id.signOut:
-                Intent intent=new Intent(AdminActivity.this, LoginActivity.class);
-                startActivity(intent);
-        }
-        return super.onOptionsItemSelected(item);
-    }
+//    @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//        // Inflate the menu; this adds items to the action bar if it is present.
+//        getMenuInflater().inflate(R.menu.toolbar, menu);
+//        return true;
+//    }
+//
+//    @Override
+//    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+//        switch (item.getItemId())
+//        {
+//            case R.id.signOut:
+//                Intent intent=new Intent(AdminActivity.this, LoginActivity.class);
+//                startActivity(intent);
+//        }
+//        return super.onOptionsItemSelected(item);
+//    }
 }

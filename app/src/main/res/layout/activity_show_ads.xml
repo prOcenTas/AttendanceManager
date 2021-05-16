@@ -12,7 +12,7 @@
         android:layout_gravity="center"
         android:background="?attr/colorPrimary"
         app:layout_constraintTop_toTopOf="parent"
-        app:popupTheme="@style/Theme.AndroidAttendance.PopupOverlay"
+        app:popupTheme="@style/AppTheme"
         app:title="Attendance Manager" />
 
 

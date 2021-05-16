@@ -4,13 +4,16 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.androidattendance.R;
+import com.example.androidattendance.UserActivitys.AdminActivitys.AdminActivity;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -20,6 +23,7 @@ public class AdminAddStudent extends AppCompatActivity {
     private EditText studentNumber,studentName,lectureName;
     private Button addButton;
     private Button delButton;
+    private ImageView backOut;
 
     private FirebaseDatabase firebaseDatabase;
     private DatabaseReference referenceStudent,referenceLecture;
@@ -28,17 +32,23 @@ public class AdminAddStudent extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_add_student);
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        ActionBar ab=getSupportActionBar();
-        ab.setDisplayHomeAsUpEnabled(true);
+
 
         studentNumber=(EditText)findViewById(R.id.studentId);
         studentName=(EditText)findViewById(R.id.studentName);
         lectureName=(EditText)findViewById(R.id.lecture);
 
-        addButton=(Button) findViewById(R.id.addStudentButton);
+        addButton=(Button) findViewById(R.id.addButton);
         delButton=(Button) findViewById(R.id.deleteButton);
+
+        backOut=(ImageView)findViewById(R.id.toolbar_back);
+        backOut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(AdminAddStudent.this, AdminActivity.class);
+                startActivity(intent);
+            }
+        });
 
         referenceStudent=FirebaseDatabase.getInstance().getReference("student");
         referenceLecture=FirebaseDatabase.getInstance().getReference("lecture");

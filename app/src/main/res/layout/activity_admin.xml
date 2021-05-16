@@ -1,114 +1,269 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/bg"
     tools:context=".UserActivitys.AdminActivitys.AdminActivity">
 
-    <androidx.appcompat.widget.Toolbar
+    <LinearLayout
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:layout_gravity="center"
-        android:background="?attr/colorPrimary"
-        app:layout_constraintTop_toTopOf="parent"
-        app:popupTheme="@style/Theme.AndroidAttendance.PopupOverlay"
-        app:title="Attendance Manager" />
-
-
-
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="#ffffff"
         android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar">
+        android:padding="15.00dp">
 
-        <TextView
-            android:layout_width="200dp"
-            android:layout_height="36dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginLeft="8dp"
-            android:gravity="right"
-            android:paddingRight="10dp"
-            android:text="Hello"
-            android:textSize="30sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/welcomingUser"
-            android:layout_width="200dp"
-            android:layout_height="36dp"
-            android:gravity="left"
-            android:paddingLeft="10dp"
-            android:text="User"
-            android:textSize="30sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.2"
-            app:layout_constraintStart_toEndOf="@+id/textView2"
-            app:layout_constraintTop_toTopOf="parent" />
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="37.00dp"
+                android:adjustViewBounds="true"
+                android:alpha="1"
+                android:src="@drawable/logo" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/profile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3.00dp"
+                android:layout_marginRight="5.00dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/p_reguler"
+                        android:gravity="center"
+                        android:text="Hello "
+                        android:textColor="@color/text4"
+                        android:textSize="16.00sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/welcomingUser"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/p_reguler"
+                        android:gravity="center"
+                        android:text="NAME"
+                        android:textColor="@color/text4"
+                        android:textSize="16.00sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/first_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/p_reguler"
+                        android:gravity="center"
+                        android:text=""
+                        android:textColor="@color/text4"
+                        android:textSize="16.00sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/p_reguler"
+                    android:gravity="right"
+                    android:text="See your profile"
+                    android:textColor="@color/text4"
+                    android:textSize="14.00sp" />
+
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/profile_image"
+                android:layout_width="37.00dp"
+                android:layout_height="37.00dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_profile" />
+
+        </LinearLayout>
 
     </LinearLayout>
 
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="108dp"
-        android:background="@drawable/button"
-        android:onClick="register"
-        android:text="Register Teacher"
-        android:textColor="#ffff"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.508"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
-
-    <Button
-        android:id="@+id/addStudentButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/button"
-        android:onClick="manageStudent"
-        android:text="Manage Students"
-        android:textColor="#ffff"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/imageView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.513"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button3"
-        app:layout_constraintVertical_bias="0.14" />
-
-    <Button
-        android:id="@+id/checkCourseButton"
-        android:layout_width="152dp"
-        android:layout_height="60dp"
-        android:layout_marginBottom="136dp"
-        android:background="@drawable/button"
-        android:text="Check Course"
-        android:textColor="#ffff"
-        android:onClick="checkCourse"
-        app:layout_constraintBottom_toTopOf="@+id/imageView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addStudentButton"
-        app:layout_constraintVertical_bias="0.735" />
-
-    <ImageView
-        android:id="@+id/imageView"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:src="@drawable/vialogo_main"
-        />
+        android:layout_height="match_parent"
+        android:padding="15.00dp"
+        android:layout_below="@+id/toolbar">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:onClick="checkCourse"
+                    android:id="@+id/courses"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10.00dp"
+                    android:layout_weight="2"
+                    android:background="@drawable/bg_bottombar_content_15"
+                    android:backgroundTint="@color/background"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="20.00dp">
+
+                    <ImageView
+                        android:layout_width="27.00dp"
+                        android:layout_height="30.00dp"
+                        android:src="@drawable/ic_application"
+                        app:tint="@color/colorPrimary" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="13.00dp"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/p_reguler"
+                        android:textStyle="bold"
+                        android:text="Check Courses"
+                        android:textColor="@color/text4"
+                        android:textSize="14.00sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:onClick="register"
+                    android:id="@+id/registerClick"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10.00dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_bottombar_content_15"
+                    android:backgroundTint="@color/background"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="25.00dp">
+
+                    <ImageView
+                        android:layout_width="27.00dp"
+                        android:layout_height="30.00dp"
+                        android:src="@drawable/ic_contact"
+                        app:tint="@color/colorPrimary" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="13.00dp"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/p_reguler"
+                        android:textStyle="bold"
+                        android:text="Techer Registration"
+                        android:textColor="@color/text4"
+                        android:textSize="14.00sp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <LinearLayout
+                    android:onClick="manageStudent"
+                    android:id="@+id/manageStudent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10.00dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_bottombar_content_15"
+                    android:backgroundTint="@color/background"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="20.00dp">
+
+                    <ImageView
+                        android:layout_width="25.00dp"
+                        android:layout_height="25.00dp"
+                        android:src="@drawable/ic_profile2"
+                        app:tint="@color/colorPrimary" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="13.00dp"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/p_reguler"
+                        android:textStyle="bold"
+                        android:text="Student Management"
+                        android:textColor="@color/text4"
+                        android:textSize="14.00sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/url"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10.00dp"
+                    android:layout_weight="2"
+                    android:background="@drawable/bg_bottombar_content_15"
+                    android:backgroundTint="@color/background"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="20.00dp">
+
+                    <ImageView
+                        android:layout_width="27.00dp"
+                        android:layout_height="30.00dp"
+                        android:src="@drawable/ic_text"
+                        app:tint="@color/colorPrimary" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="13.00dp"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/p_reguler"
+                        android:textStyle="bold"
+                        android:text="About"
+                        android:textColor="@color/text4"
+                        android:textSize="14.00dp" />
+
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

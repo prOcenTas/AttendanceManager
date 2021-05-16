@@ -39,12 +39,10 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        ActionBar ab=getSupportActionBar();
-        ab.setDisplayHomeAsUpEnabled(true);
 
-        loginUsername=(EditText) findViewById(R.id.loginEmail);
+
+
+        loginUsername=(EditText) findViewById(R.id.LoginUsername);
         loginPassword=(EditText) findViewById(R.id.loginPassword);
 
 

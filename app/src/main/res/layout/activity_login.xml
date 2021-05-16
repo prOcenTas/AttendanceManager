@@ -1,78 +1,341 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/bg"
     tools:context=".StartActivitys.LoginActivity">
 
-
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:layout_gravity="center"
-        android:background="?attr/colorPrimary"
-        app:layout_constraintTop_toTopOf="parent"
-        app:popupTheme="@style/Theme.AndroidAttendance.PopupOverlay"
-        app:title="Attendance Manager" />
+        android:layout_height="match_parent"
+        tools:ignore="UselessParent">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="134dp"
-        android:layout_height="57dp"
-        android:layout_marginTop="52dp"
-        android:gravity="center"
-        android:hint="Email"
-        android:text="Log In"
-        android:textSize="40sp"
-        app:layout_constraintBottom_toTopOf="@+id/loginButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.519"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.176" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-    <EditText
-        android:id="@+id/loginEmail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="164dp"
-        android:ems="10"
-        android:gravity="center"
-        android:hint="Email"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20.00dp"
+                android:orientation="horizontal">
 
-    <EditText
-        android:id="@+id/loginPassword"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="45.00dp"
+                    android:layout_marginLeft="15.00dp"
+                    android:layout_marginRight="15.00dp"
+                    android:adjustViewBounds="true"
+                    android:alpha="1"
+                    android:src="@drawable/logo" />
 
-        android:ems="10"
-        android:gravity="center"
-        android:hint="Password"
-        android:inputType="textPassword"
-        app:layout_constraintBottom_toTopOf="@+id/loginButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/loginEmail" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="3.00dp"
+                    android:fontFamily="@font/p_semibold"
+                    android:gravity="center"
+                    android:text="Attendance Manager"
+                    android:textColor="@color/text4"
+                    android:textSize="20.00dp" />
 
-    <Button
-        android:id="@+id/loginButton"
-        android:layout_width="123dp"
-        android:layout_height="54dp"
-        android:text="SIGN IN"
-        android:textColor="@android:color/black"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.685"
-        android:background="@drawable/button"
-        android:onClick="login"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15.00dp"
+                android:layout_marginTop="25.00dp"
+                android:layout_marginRight="15.00dp"
+                android:background="@drawable/bg_bottombar_content_15"
+                android:orientation="vertical"
+                android:padding="15.00dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15.00dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="8.00dp"
+                        android:fontFamily="@font/p_semibold"
+                        android:text="Login"
+                        android:textColor="@color/text4"
+                        android:textSize="20.00dp" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="17.00dp"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="12.00dp"
+                        android:layout_marginBottom="1.00dp"
+                        android:adjustViewBounds="true"
+                        android:src="@drawable/ic_right_arrow"
+                        app:tint="@color/text3" />
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20.00dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_bottombar_content_15"
+                    android:backgroundTint="#08000000"
+                    android:orientation="vertical"
+                    android:padding="15.00dp">
+
+                    <EditText
+                        android:id="@+id/LoginUsername"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="#00ffffff"
+                        android:fontFamily="@font/p_reguler"
+                        android:hint="Username"
+                        android:textColor="@color/text4"
+                        android:textColorHint="@color/text4"
+                        android:textSize="17.00sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10.00dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_bottombar_content_15"
+                    android:backgroundTint="#08000000"
+                    android:orientation="horizontal">
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:padding="15.00dp"
+                        app:passwordToggleEnabled="true">
+
+                        <EditText
+                            android:id="@+id/loginPassword"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="#00ffffff"
+                            android:fontFamily="@font/p_reguler"
+                            android:hint="Password"
+                            android:inputType="textPassword"
+                            android:textColor="@color/text4"
+                            android:textColorHint="@color/text4"
+                            android:textSize="17.00sp" />
+
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/loginButton"
+                    android:layout_width="match_parent"
+                    android:onClick="login"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20.00dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_bottombar_content_15"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:orientation="vertical"
+                    android:padding="15.00dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:fontFamily="@font/p_medium"
+                        android:text="Sign In"
+                        android:textColor="@color/background"
+                        android:textSize="17.00sp" />
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10.00dp"
+                android:layout_marginTop="10.00dp"
+                android:layout_marginRight="10.00dp"
+                android:background="@drawable/bg_bottombar_content_15"
+                android:backgroundTint="#ffffff"
+                android:orientation="vertical"
+                android:padding="15.00dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10.00dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/p_semibold"
+                        android:text="About me"
+                        android:textColor="@color/text4"
+                        android:textSize="20.00dp" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="12.00dp"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="7.00dp"
+                        android:layout_marginBottom="1.00dp"
+                        android:adjustViewBounds="true"
+                        android:src="@drawable/ic_right_arrow"
+                        app:tint="@color/text3" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10.00dp"
+                    android:fontFamily="@font/p_reguler"
+                    android:justificationMode="inter_word"
+                    android:letterSpacing="0.03"
+                    android:lineHeight="15.00dp"
+                    android:text="VIA University College, 4th semester student Faustas Volkovas. App was created as part of the requirements of passing Android Development exam :)"
+                    android:textColor="@color/text3"
+                    android:textSize="15.00sp" />
+
+                <LinearLayout
+                    android:id="@+id/info"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15.00dp"
+                    android:layout_marginBottom="10.00dp"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:id="@+id/email"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="17.00dp"
+                            android:layout_height="17.00dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/ic_email"
+                            app:tint="@color/text3" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="5.00dp"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/p_reguler"
+                            android:justificationMode="inter_word"
+                            android:letterSpacing="0.03"
+                            android:text="volkovasfaustas@gmail.com"
+                            android:textColor="@color/text3"
+                            android:textSize="15.00sp" />
+
+
+                        <ImageView
+                            android:layout_width="12.00dp"
+                            android:layout_height="12.00dp"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="5.00dp"
+                            android:rotation="180"
+                            android:src="@drawable/ic_arrow"
+                            app:tint="#888888" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/phone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="5.00dp"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="17.00dp"
+                            android:layout_height="17.00dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/ic_call"
+                            app:tint="@color/text3" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="5.00dp"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/p_reguler"
+                            android:justificationMode="inter_word"
+                            android:letterSpacing="0.03"
+                            android:text="+45 50 10 38 06"
+                            android:textColor="@color/text3"
+                            android:textSize="15.00sp" />
+
+                        <ImageView
+                            android:layout_width="12.00dp"
+                            android:layout_height="12.00dp"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="5.00dp"
+                            android:rotation="180"
+                            android:src="@drawable/ic_arrow"
+                            app:tint="#888888" />
+
+                    </LinearLayout>
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10.00dp"
+                android:layout_marginTop="65.00dp"
+                android:layout_marginRight="10.00dp"
+                android:layout_marginBottom="10.00dp"
+                android:background="@drawable/bg_bottombar_content_15"
+                android:backgroundTint="#ffffff"
+                android:orientation="vertical"
+                android:padding="8.00dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/p_reguler"
+                    android:gravity="center"
+                    android:justificationMode="inter_word"
+                    android:letterSpacing="0.03"
+                    android:lineHeight="15.00dp"
+                    android:text="Copyright Attendance Manager 2021, All right reserved."
+                    android:textColor="@color/text3"
+                    android:textSize="11.00sp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</RelativeLayout>

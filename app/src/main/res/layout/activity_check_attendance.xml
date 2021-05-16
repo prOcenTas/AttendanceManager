@@ -6,15 +6,47 @@
     android:layout_height="match_parent"
     tools:context=".UserActivitys.TeacherActivitys.Attendance.CheckAttendance">
 
-    <androidx.appcompat.widget.Toolbar
+    <LinearLayout
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:layout_gravity="center"
-        android:background="?attr/colorPrimary"
-        app:layout_constraintTop_toTopOf="parent"
-        app:popupTheme="@style/Theme.AndroidAttendance.PopupOverlay"
-        app:title="Attendance Manager" />
+        android:layout_height="wrap_content"
+        android:background="#ffffff"
+        android:elevation="6.00dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="1">
+
+            <ImageView
+                android:id="@+id/toolbar_back"
+                android:layout_width="45.00dp"
+                android:layout_height="45.00dp"
+                android:layout_gravity="center"
+                android:padding="10.00dp"
+                android:src="@drawable/ic_arrow"
+                app:tint="#222222" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="10.00dp"
+                android:layout_weight="1"
+                android:fontFamily="@font/p_semibold"
+                android:text="Check  Attendance"
+                android:textColor="@color/text4"
+                android:textSize="17.00sp" />
+
+
+        </LinearLayout>
+    </LinearLayout>
 
     <TextView
         android:id="@+id/className"
@@ -26,7 +58,7 @@
         android:layout_marginTop="32dp"
         android:layout_marginEnd="124dp"
 
-        android:fontFamily="serif"
+        android:fontFamily="@font/p_semibold"
         android:text="------"
         android:textAllCaps="true"
         android:textSize="35dp"
@@ -47,7 +79,7 @@
         android:layout_marginTop="32dp"
         android:layout_marginEnd="124dp"
 
-        android:fontFamily="serif"
+        android:fontFamily="@font/p_semibold"
         android:text="DATE"
         android:textAllCaps="true"
         android:textSize="35dp"
@@ -58,38 +90,49 @@
         android:layout_marginRight="120dp"
         android:layout_marginLeft="142dp" />
 
-    <EditText
-        android:id="@+id/attendanceId"
+    <LinearLayout
+        android:id="@+id/linearLayout2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="124dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="124dp"
-        android:ems="10"
-        android:hint=" StudentId"
-        android:gravity="center"
-        android:inputType="textPersonName"
+        android:layout_weight="1"
+        android:background="@drawable/bg_bottombar_content_15"
+        android:backgroundTint="#08000000"
+        android:orientation="vertical"
+        android:padding="15dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/date"
-        android:layout_marginLeft="120dp"
-        android:layout_marginRight="78dp" />
+        app:layout_constraintTop_toBottomOf="@+id/date">
+
+        <EditText
+            android:id="@+id/attendanceId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#00ffffff"
+            android:fontFamily="@font/p_reguler"
+            android:hint="studentId"
+            android:textColor="@color/text4"
+            android:textColorHint="@color/text4"
+            android:textSize="17sp" />
+
+    </LinearLayout>
 
     <Button
         android:id="@+id/attendanceButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="124dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginLeft="171dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="124dp"
+        android:layout_marginRight="152dp"
+        android:background="@drawable/button2"
         android:text="Check In"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.506"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/attendanceId"
-        android:layout_marginLeft="171dp"
-        android:layout_marginRight="152dp"
-        android:background="@drawable/button"/>
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
 
     <TextView
         android:id="@+id/attendanceCounter"
@@ -112,15 +155,6 @@
         android:layout_marginRight="123dp"
         android:layout_marginLeft="125dp" />
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:src="@drawable/vialogo_main"
-        />
 
 
 
