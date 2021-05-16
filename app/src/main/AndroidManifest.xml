@@ -12,7 +12,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".UserActivitys.TeacherActivitys.Attendance.CheckAttendance"
+        <activity android:name=".UserActivitys.Profile" />
+        <activity
+            android:name=".UserActivitys.TeacherActivitys.Attendance.CheckAttendance"
             android:parentActivityName=".UserActivitys.TeacherActivitys.UserActivity" />
         <activity
             android:name=".UserActivitys.AdminActivitys.CheckingCourse.ESW.ShowEswActivity"

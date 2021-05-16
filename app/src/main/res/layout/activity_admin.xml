@@ -32,7 +32,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/profile"
+            android:id="@+id/profile_layout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -103,7 +103,7 @@
             </LinearLayout>
 
             <ImageView
-                android:id="@+id/profile_image"
+                android:id="@+id/profile"
                 android:layout_width="37.00dp"
                 android:layout_height="37.00dp"
                 android:layout_gravity="center"

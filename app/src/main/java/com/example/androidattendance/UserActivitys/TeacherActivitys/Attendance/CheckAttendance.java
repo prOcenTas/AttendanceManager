@@ -7,6 +7,7 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -31,31 +32,32 @@ public class CheckAttendance extends AppCompatActivity {
     private EditText studentId;
     private Button attendanceButton;
     private ImageView backOut;
+
+
+
     int request_code=1;
     private int counter=0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_check_attendance);
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        ActionBar ab=getSupportActionBar();
-        ab.setDisplayHomeAsUpEnabled(true);
+
 
         //showing proper class name
-        className=findViewById(R.id.className);
+        className=(TextView) findViewById(R.id.courseNameToPass);
         Intent intent=getIntent();
         String lectureNameSent=intent.getStringExtra("Lecture");
         className.setText(lectureNameSent);
 
         //showing todays date
-        date=(TextView)findViewById(R.id.date);
+        date=(TextView)findViewById(R.id.dateNow);
         Calendar cal = Calendar.getInstance();
         int year = cal.get(Calendar.YEAR);
         int month = cal.get(Calendar.MONTH);
         int day = cal.get(Calendar.DAY_OF_MONTH);
-        String dateNow = month+1 + "-" + day + "-" + year;
-        date.setText(dateNow);
+        String dateToShow = month+1 + "-" + day + "-" + year;
+        date.setText(dateToShow);
+
 
         //backout to previous page
         backOut=findViewById(R.id.toolbar_back);
@@ -68,21 +70,27 @@ public class CheckAttendance extends AppCompatActivity {
         });
 
         attendanceCounter=findViewById(R.id.attendanceCounter);
-        studentId=findViewById(R.id.studentId);
+        studentId=findViewById(R.id.attendanceId);
         attendanceButton=findViewById(R.id.attendanceButton);
 
-        DatabaseReference reference= FirebaseDatabase.getInstance().getReference("lecture");
+
+    }
+
+
+    public void checkIn(View view) {
+        //this studentId.getText().toString() been making me sit and stare at the screen for 2hours because of null
+        //HEY IMMA EXPLAIN WHAT TOOK ME 2HOURS, I HAD A WRONG ID SET ON EDITTEXT STUDENTID.... THATS WHAT TOO MUCH WORK DOES TO YOU
+        //I even rewrote the whole part of check attendance
+
+        final DatabaseReference reference= FirebaseDatabase.getInstance().getReference("lecture");
         reference.child(className.getText().toString()).orderByChild("studentId").equalTo(studentId.getText().toString());
 
-        DatabaseReference referenceTo= FirebaseDatabase.getInstance().getReference("attendance")
-                .child(className.getText().toString()).child("Date = " + dateNow)
-                .child(studentId.getText().toString());
+        final DatabaseReference referenceTo= FirebaseDatabase.getInstance().getReference("attendance")
+                .child(className.getText().toString()).child("Date = " + date.getText().toString()).child(studentId.getText().toString());
 
-        attendanceButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                reference.child(className.getText().toString()).orderByChild("studentId").equalTo(studentId.getText().toString())
-                        .addListenerForSingleValueEvent(new ValueEventListener() {
+
+        reference.child(className.getText().toString()).orderByChild("studentId").equalTo(studentId.getText().toString())
+                .addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         if(snapshot.exists())
@@ -90,7 +98,7 @@ public class CheckAttendance extends AppCompatActivity {
                             ValueEventListener valueEventListener=new ValueEventListener() {
                                 @Override
                                 public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                    referenceTo.child(studentId.getText().toString()).setValue(snapshot.getValue()).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                    referenceTo.setValue(snapshot.getValue()).addOnCompleteListener(new OnCompleteListener<Void>() {
                                         @Override
                                         public void onComplete(@NonNull Task<Void> task) {
                                             if (task.isComplete()) {
@@ -119,7 +127,5 @@ public class CheckAttendance extends AppCompatActivity {
                     @Override
                     public void onCancelled(@NonNull DatabaseError error) {}
                 });
-            }
-        });
     }
 }

@@ -20,11 +20,14 @@ import com.example.androidattendance.StartActivitys.LoginActivity;
 import com.example.androidattendance.UserActivitys.AdminActivitys.AddingStudent.AdminAddStudent;
 import com.example.androidattendance.UserActivitys.AdminActivitys.CheckingCourse.CheckCourse;
 import com.example.androidattendance.UserActivitys.AdminActivitys.RegisteringTeacher.RegisterUser;
+import com.example.androidattendance.UserActivitys.Profile;
+import com.example.androidattendance.UserActivitys.TeacherActivitys.UserActivity;
 
 public class AdminActivity extends AppCompatActivity {
-    LinearLayout manageStudent, register, courses;
-    TextView welcmUser;
-
+    private  LinearLayout manageStudent, register, courses;
+    private TextView welcmUser;
+    private ImageView userProfile;
+    private String namePassed,phonePassed,typePassed;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,9 +42,22 @@ public class AdminActivity extends AppCompatActivity {
         //welcoming user with their name
         welcmUser=findViewById(R.id.welcomingUser);
         Intent userIntent=getIntent();
-        String namePassed=userIntent.getStringExtra("name");
+        namePassed=userIntent.getStringExtra("name");
+        phonePassed=userIntent.getStringExtra("phoneNu");
+        typePassed=userIntent.getStringExtra("type");
         welcmUser.setText(namePassed);
 
+        userProfile=findViewById(R.id.profile);
+        userProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent profileIntent=new Intent(AdminActivity.this, Profile.class);
+                profileIntent.putExtra("name",namePassed);
+                profileIntent.putExtra("phoneNu",phonePassed);
+                profileIntent.putExtra("type",typePassed);
+                startActivity(profileIntent);
+            }
+        });
 
     }
 

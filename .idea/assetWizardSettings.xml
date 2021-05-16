@@ -141,7 +141,8 @@
                                             <option name="values">
                                               <map>
                                                 <entry key="color" value="000000" />
-                                                <entry key="imagePath" value="D:\SoftwareEngineering\AndroidDev\AndroidAttendanceProject\android.jpg" />
+                                                <entry key="imagePath" value="D:\SoftwareEngineering\AndroidDev\AndroidAttendanceProject\doge.jpg" />
+                                                <entry key="paddingPercent" value="-10" />
                                               </map>
                                             </option>
                                           </PersistentState>
@@ -174,9 +175,9 @@
                                   <option name="values">
                                     <map>
                                       <entry key="assetType" value="IMAGE" />
-                                      <entry key="iconShape" value="CIRCLE" />
-                                      <entry key="imageAsset" value="D:\SoftwareEngineering\AndroidDev\AndroidAttendanceProject\android.jpg" />
-                                      <entry key="outputName" value="android" />
+                                      <entry key="iconShape" value="HRECT" />
+                                      <entry key="imageAsset" value="D:\SoftwareEngineering\AndroidDev\AndroidAttendanceProject\doge.jpg" />
+                                      <entry key="outputName" value="dogeProfile" />
                                     </map>
                                   </option>
                                 </PersistentState>

@@ -49,7 +49,7 @@
     </LinearLayout>
 
     <TextView
-        android:id="@+id/className"
+        android:id="@+id/courseNameToPass"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/toolbar"
@@ -70,7 +70,7 @@
         android:layout_marginLeft="142dp" />
 
     <TextView
-        android:id="@+id/date"
+        android:id="@+id/dateNow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/toolbar"
@@ -86,7 +86,7 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/className"
+        app:layout_constraintTop_toBottomOf="@+id/courseNameToPass"
         android:layout_marginRight="120dp"
         android:layout_marginLeft="142dp" />
 
@@ -103,7 +103,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/date">
+        app:layout_constraintTop_toBottomOf="@+id/dateNow">
 
         <EditText
             android:id="@+id/attendanceId"
@@ -120,6 +120,7 @@
 
     <Button
         android:id="@+id/attendanceButton"
+        android:onClick="checkIn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="124dp"

@@ -17,29 +17,44 @@ import android.widget.TextView;
 import com.example.androidattendance.R;
 import com.example.androidattendance.StartActivitys.LoginActivity;
 import com.example.androidattendance.UserActivitys.AdminActivitys.AdminActivity;
+import com.example.androidattendance.UserActivitys.Profile;
 import com.example.androidattendance.UserActivitys.TeacherActivitys.Attendance.CheckAttendance;
 
 public class UserActivity extends AppCompatActivity {
-    ImageView ADSbutton,ESWbutton,ANDbutton,DAIbutton;
-    TextView welcmUser;
+    private ImageView ADSbutton,ESWbutton,ANDbutton,DAIbutton,userProfile;
+    private TextView welcmUser;
+    private String namePassed,phonePassed,typePassed;
 
     int request_code=1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user);
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+
 
         ADSbutton=findViewById(R.id.ADSbutton);
         ANDbutton=findViewById(R.id.ANDbutton);
         DAIbutton=findViewById(R.id.DAIbutton);
         ESWbutton=findViewById(R.id.ESWbutton);
 
-        welcmUser=findViewById(R.id.welcomingUser);
+        welcmUser=findViewById(R.id.welcmUser);
         Intent userIntent=getIntent();
-        String namePassed=userIntent.getStringExtra("name");
+        namePassed=userIntent.getStringExtra("name");
+        phonePassed=userIntent.getStringExtra("phoneNu");
+        typePassed=userIntent.getStringExtra("type");
         welcmUser.setText(namePassed);
+
+        userProfile=findViewById(R.id.profile);
+        userProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent profileIntent=new Intent(UserActivity.this, Profile.class);
+                profileIntent.putExtra("name",namePassed);
+                profileIntent.putExtra("phoneNu",phonePassed);
+                profileIntent.putExtra("type",typePassed);
+                startActivity(profileIntent);
+            }
+        });
     }
 
     public void android(View view) {
@@ -54,7 +69,7 @@ public class UserActivity extends AppCompatActivity {
         String className="ESW";
 
         Intent intent=new Intent(UserActivity.this, CheckAttendance.class);
-        intent.putExtra("Classname",className);
+        intent.putExtra("Lecture",className);
         startActivityForResult(intent,request_code);
     }
 
@@ -62,7 +77,7 @@ public class UserActivity extends AppCompatActivity {
         String className="DAI";
 
         Intent intent=new Intent(UserActivity.this, CheckAttendance.class);
-        intent.putExtra("Classname",className);
+        intent.putExtra("Lecture",className);
         startActivityForResult(intent,request_code);
     }
 
@@ -70,7 +85,7 @@ public class UserActivity extends AppCompatActivity {
         String className="ADS";
 
         Intent intent=new Intent(UserActivity.this, CheckAttendance.class);
-        intent.putExtra("Classname",className);
+        intent.putExtra("Lecture",className);
         startActivityForResult(intent,request_code);
     }
 
