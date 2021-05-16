@@ -47,7 +47,7 @@ public class AdminActivity extends AppCompatActivity {
 
     public void register(View view)
     {
-        startActivity(new Intent(this, RegisterUser.class));
+        startActivity(new Intent(AdminActivity.this, RegisterUser.class));
     }
 
     public void manageStudent(View view)

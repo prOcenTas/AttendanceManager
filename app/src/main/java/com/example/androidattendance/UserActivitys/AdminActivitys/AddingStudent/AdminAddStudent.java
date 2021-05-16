@@ -82,35 +82,34 @@ public class AdminAddStudent extends AppCompatActivity {
         String studentId=studentNumber.getText().toString();
         String name=studentName.getText().toString();
         String lecture=lectureName.getText().toString();
-        if(validate())
-        {
-            Student studentHelper=new Student(studentId,name);
-            referenceLecture.child(lecture).child(studentId).removeValue();
-            studentName.setText("");
-            studentName.setText("");
-            lectureName.setText("");
+        if(checkLectureName()) {
+            if (validate()) {
+                Student studentHelper = new Student(studentId, name);
+                referenceLecture.child(lecture).child(studentId).removeValue();
+                studentName.setText("");
+                studentName.setText("");
+                lectureName.setText("");
 
-            Toast.makeText(AdminAddStudent.this,"Student Deleted",Toast.LENGTH_SHORT).show();
-        }
-        else{
-            Toast.makeText(AdminAddStudent.this,"Please Fill Fields",Toast.LENGTH_SHORT).show();
+                Toast.makeText(AdminAddStudent.this, "Student Deleted", Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(AdminAddStudent.this, "Please Fill Fields", Toast.LENGTH_SHORT).show();
+            }
         }
     }
 
     //making sure that the Lecture name is indeed correct
     private boolean checkLectureName()
     {
-        boolean result = false;
         String lecture=lectureName.getText().toString();
 
-        if(!lecture.equals("ADS") || !lecture.equals("ESW") || !lecture.equals("AND") || !lecture.equals("DAI"))
+        if(lecture.matches("ADS") || lecture.matches("ESW") || lecture.matches("AND") || lecture.matches("DAI"))
         {
-            Toast.makeText(this,"Please Enter the right Lecture",Toast.LENGTH_SHORT).show();
+            return true;
         }
         else{
-            result=true;
+            Toast.makeText(this,"Please Enter the right Lecture",Toast.LENGTH_SHORT).show();
+            return false;
         }
-        return result;
     }
 
     //making sure the data fields are not empty

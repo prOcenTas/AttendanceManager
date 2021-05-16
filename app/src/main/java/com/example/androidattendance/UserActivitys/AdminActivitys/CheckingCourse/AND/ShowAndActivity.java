@@ -7,9 +7,14 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
 
 import com.example.androidattendance.R;
+import com.example.androidattendance.UserActivitys.AdminActivitys.CheckingCourse.ADS.ShowAdsActivity;
+import com.example.androidattendance.UserActivitys.AdminActivitys.CheckingCourse.CheckCourse;
 import com.example.androidattendance.UserActivitys.AdminActivitys.CheckingCourse.HelperClasses.Model;
 import com.example.androidattendance.UserActivitys.AdminActivitys.CheckingCourse.HelperClasses.MyAdapter;
 import com.google.firebase.database.DataSnapshot;
@@ -26,15 +31,21 @@ public class ShowAndActivity extends AppCompatActivity {
     private DatabaseReference referenceLecture= FirebaseDatabase.getInstance().getReference("lecture").child("AND");
     private MyAdapter adapter;
     private ArrayList<Model> list;
+    private ImageView goBack;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_and);
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        ActionBar ab=getSupportActionBar();
-        ab.setDisplayHomeAsUpEnabled(true);
+
+        goBack=(ImageView)findViewById(R.id.toolbar_back);
+        goBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(ShowAndActivity.this, CheckCourse.class);
+                startActivity(intent);
+            }
+        });
 
         recyclerView=findViewById(R.id.recyclerView);
         recyclerView.setHasFixedSize(true);
