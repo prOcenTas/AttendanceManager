@@ -4,6 +4,7 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
 
     <application
         android:allowBackup="true"
@@ -12,40 +13,52 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".UserActivitys.Profile" />
+        <activity android:name=".UserActivitys.Profile"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".UserActivitys.TeacherActivitys.Attendance.CheckAttendance"
-            android:parentActivityName=".UserActivitys.TeacherActivitys.UserActivity" />
+            android:parentActivityName=".UserActivitys.TeacherActivitys.UserActivity"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".UserActivitys.AdminActivitys.CheckingCourse.ESW.ShowEswActivity"
-            android:parentActivityName=".UserActivitys.AdminActivitys.CheckingCourse.CheckCourse" />
+            android:parentActivityName=".UserActivitys.AdminActivitys.CheckingCourse.CheckCourse"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".UserActivitys.AdminActivitys.CheckingCourse.DAI.ShowDaiActivity"
-            android:parentActivityName=".UserActivitys.AdminActivitys.CheckingCourse.CheckCourse" />
+            android:parentActivityName=".UserActivitys.AdminActivitys.CheckingCourse.CheckCourse"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".UserActivitys.AdminActivitys.CheckingCourse.AND.ShowAndActivity"
-            android:parentActivityName=".UserActivitys.AdminActivitys.CheckingCourse.CheckCourse" />
+            android:parentActivityName=".UserActivitys.AdminActivitys.CheckingCourse.CheckCourse"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".UserActivitys.AdminActivitys.CheckingCourse.ADS.ShowAdsActivity"
-            android:parentActivityName=".UserActivitys.AdminActivitys.CheckingCourse.CheckCourse" />
+            android:parentActivityName=".UserActivitys.AdminActivitys.CheckingCourse.CheckCourse"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".UserActivitys.AdminActivitys.CheckingCourse.CheckCourse"
-            android:parentActivityName=".UserActivitys.AdminActivitys.AdminActivity" />
+            android:parentActivityName=".UserActivitys.AdminActivitys.AdminActivity"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".UserActivitys.TeacherActivitys.UserActivity"
-            android:parentActivityName=".StartActivitys.LoginActivity" />
+            android:parentActivityName=".StartActivitys.LoginActivity"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".UserActivitys.AdminActivitys.AdminActivity"
-            android:parentActivityName=".StartActivitys.LoginActivity" />
+            android:parentActivityName=".StartActivitys.LoginActivity"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".UserActivitys.AdminActivitys.AddingStudent.AdminAddStudent"
-            android:parentActivityName=".UserActivitys.AdminActivitys.AdminActivity" />
+            android:parentActivityName=".UserActivitys.AdminActivitys.AdminActivity"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".UserActivitys.AdminActivitys.RegisteringTeacher.RegisterUser"
-            android:parentActivityName=".UserActivitys.AdminActivitys.AdminActivity" />
+            android:parentActivityName=".UserActivitys.AdminActivitys.AdminActivity"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".StartActivitys.LoginActivity"
-            android:parentActivityName=".StartActivitys.LoginActivity">
+            android:parentActivityName=".StartActivitys.LoginActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

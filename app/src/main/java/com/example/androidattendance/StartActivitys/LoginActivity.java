@@ -1,11 +1,14 @@
 package com.example.androidattendance.StartActivitys;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -26,18 +29,42 @@ import com.google.firebase.database.ValueEventListener;
 
 public class LoginActivity extends AppCompatActivity {
     private EditText loginUsername,loginPassword;
+    
+    private LinearLayout emailAddress,phoneNumber;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-
-
         loginUsername=(EditText) findViewById(R.id.LoginUsername);
         loginPassword=(EditText) findViewById(R.id.loginPassword);
 
+        //email me for the best tech support :^)
+        emailAddress=findViewById(R.id.email);
+        emailAddress.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent mailIntent=new Intent(Intent.ACTION_SEND);
+                mailIntent.setType("text/plain");
+                mailIntent.putExtra(Intent.EXTRA_EMAIL, new String[] {"volkovasfaustas@gmail.com"});
+                mailIntent.putExtra(Intent.EXTRA_SUBJECT, "Attendance Manager: support request");
+                mailIntent.putExtra(Intent.EXTRA_TEXT, " ");
+                startActivity(mailIntent);
+            }
+        });
 
+
+        //call me, please dont spam :^)
+        phoneNumber=findViewById(R.id.phone);
+        phoneNumber.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent callIntent = new Intent(Intent.ACTION_DIAL);
+                callIntent.setData(Uri.parse("tel:50103806"));
+                startActivity(callIntent);
+            }
+        });
     }
 
     private boolean validateUsername()
