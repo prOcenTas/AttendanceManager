@@ -12,5 +12,6 @@ Won't have: *Ads
 MoSCoW requirements:
 |     Must Have  |   Should Have  |    Could Have  |   Won't Have   |
 | -------------- | -------------- | -------------- | -------------- |
-| -[x] Login     | -[ ]
-| -[x] Manage studnets
+| -[x] Login     | -[ ] Ability to add notes | -[x] a List of students that attended that day | -[x] Ads |
+| -[x] Manage students| -[x] Ability to contact developer |
+| -[x] Managing attendance |
