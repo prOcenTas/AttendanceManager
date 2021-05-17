@@ -8,3 +8,9 @@ Should have: *Ability to add notes
 Could have: *Reports of the student's or whole classes attendance
 
 Won't have: *Ads
+
+MoSCoW requirements:
+|     Must Have  |   Should Have  |    Could Have  |   Won't Have   |
+| -------------- | -------------- | -------------- | -------------- |
+| -[x] Login     | -[ ]
+| -[x] Manage studnets
