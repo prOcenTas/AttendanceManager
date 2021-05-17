@@ -53,8 +53,7 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(mailIntent);
             }
         });
-
-
+        
         //call me, please dont spam :^)
         phoneNumber=findViewById(R.id.phone);
         phoneNumber.setOnClickListener(new View.OnClickListener() {

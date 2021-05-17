@@ -110,16 +110,17 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10.00dp"
+                    android:layout_marginTop="20.00dp"
                     android:layout_weight="1"
                     android:background="@drawable/bg_bottombar_content_15"
                     android:backgroundTint="#08000000"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:padding="0.00dp">
+
                     <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
-                        android:padding="15.00dp"
                         app:passwordToggleEnabled="true">
 
                         <EditText
@@ -130,7 +131,6 @@
                             android:background="#00ffffff"
                             android:fontFamily="@font/p_reguler"
                             android:hint="Password"
-                            android:inputType="textPassword"
                             android:textColor="@color/text4"
                             android:textColorHint="@color/text4"
                             android:textSize="17.00sp" />
