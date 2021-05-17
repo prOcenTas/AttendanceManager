@@ -29,7 +29,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class LoginActivity extends AppCompatActivity {
     private EditText loginUsername,loginPassword;
-    
+
     private LinearLayout emailAddress,phoneNumber;
 
     @Override
