@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".UserActivitys.AdminActivitys.CheckingCourse.ADS.ShowAdsActivity">
+    <LinearLayout
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ffffff"
+        android:elevation="6.00dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="1">
+
+            <ImageView
+                android:id="@+id/toolbar_back"
+                android:layout_width="45.00dp"
+                android:layout_height="45.00dp"
+                android:layout_gravity="center"
+                android:padding="10.00dp"
+                android:src="@drawable/ic_arrow"
+                app:tint="#222222" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="10.00dp"
+                android:layout_weight="1"
+                android:fontFamily="@font/p_semibold"
+                android:text="Attendance List"
+                android:textColor="@color/text4"
+                android:textSize="17.00sp" />
+
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="45dp">
+
+        <TextView
+            android:id="@+id/lectureNameReceived"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="CLASS"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:padding="5dp"
+            android:fontFamily="@font/p_semibold"/>
+
+        <TextView
+            android:id="@+id/currentDateReceived"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="DATE"
+            android:fontFamily="@font/p_semibold"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:layout_marginLeft="20dp"
+            android:padding="5dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="15dp"
+        android:layout_marginTop="80dp">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewAttendance"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </LinearLayout>
+
+
+</RelativeLayout>

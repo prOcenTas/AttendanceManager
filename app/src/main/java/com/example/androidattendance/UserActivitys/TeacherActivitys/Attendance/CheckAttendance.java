@@ -16,6 +16,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.androidattendance.R;
+import com.example.androidattendance.UserActivitys.Profile;
+import com.example.androidattendance.UserActivitys.TeacherActivitys.Attendance.AttendanceList.CheckAttendanceList;
 import com.example.androidattendance.UserActivitys.TeacherActivitys.UserActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -30,7 +32,7 @@ import java.util.Calendar;
 public class CheckAttendance extends AppCompatActivity {
     private TextView className,attendanceCounter,date;
     private EditText studentId;
-    private Button attendanceButton;
+    private Button attendanceButton,listButton;
     private ImageView backOut;
 
 
@@ -57,6 +59,18 @@ public class CheckAttendance extends AppCompatActivity {
         int day = cal.get(Calendar.DAY_OF_MONTH);
         String dateToShow = month+1 + "-" + day + "-" + year;
         date.setText(dateToShow);
+
+        //go to attendance list
+        listButton=findViewById(R.id.attendanceListButton);
+        listButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(CheckAttendance.this, CheckAttendanceList.class);
+                intent.putExtra("class",lectureNameSent);
+                intent.putExtra("date",dateToShow);
+                startActivity(intent);
+            }
+        });
 
 
         //backout to previous page
@@ -93,7 +107,7 @@ public class CheckAttendance extends AppCompatActivity {
                                     ValueEventListener valueEventListener=new ValueEventListener() {
                                         @Override
                                         public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                            referenceTo.setValue(snapshot.getValue()).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                            referenceTo.child(studentId.getText().toString()).setValue(snapshot.getValue()).addOnCompleteListener(new OnCompleteListener<Void>() {
                                                 @Override
                                                 public void onComplete(@NonNull Task<Void> task) {
                                                     if (task.isComplete()) {
@@ -125,5 +139,4 @@ public class CheckAttendance extends AppCompatActivity {
             }
         });
     }
-
 }
