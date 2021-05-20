@@ -82,7 +82,7 @@ public class CheckAttendanceList extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(CheckAttendanceList.this, CheckAttendance.class);
-                intent.putExtra("class",lectureNamePassed);
+                intent.putExtra("Lecture",lectureNamePassed);
                 startActivity(intent);
             }
         });
