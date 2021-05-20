@@ -97,7 +97,7 @@ public class RegisterUser extends AppCompatActivity {
         if(user.isEmpty() || password.isEmpty() || phoneNu.isEmpty() || name.isEmpty() || type.isEmpty()){
             Toast.makeText(this,"Please Enter all details",Toast.LENGTH_SHORT).show();
         }else{
-            Toast.makeText(this,"Teacher has been registered",Toast.LENGTH_SHORT).show();
+            Toast.makeText(this,"User has been registered",Toast.LENGTH_SHORT).show();
             result =true;
         }
         return result;
