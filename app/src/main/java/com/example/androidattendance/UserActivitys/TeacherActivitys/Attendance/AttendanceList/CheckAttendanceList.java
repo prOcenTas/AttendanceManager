@@ -40,15 +40,6 @@ public class CheckAttendanceList extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_check_attendance_list);
 
-        goBack=(ImageView)findViewById(R.id.toolbar_back);
-        goBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent=new Intent(CheckAttendanceList.this, CheckAttendance.class);
-                startActivity(intent);
-            }
-        });
-
         //collecting sent data
         lecture=(TextView)findViewById(R.id.lectureNameReceived);
         Intent intent=getIntent();
@@ -69,7 +60,7 @@ public class CheckAttendanceList extends AppCompatActivity {
 
         recyclerView.setAdapter(adapter);
 
-        referenceAttendance= FirebaseDatabase.getInstance().getReference("attendance").child(lecture.getText().toString()).child(date.getText().toString());
+        referenceAttendance= FirebaseDatabase.getInstance().getReference("attendance").child(lecture.getText().toString()).child("Date = " + date.getText().toString());
 
         referenceAttendance.addValueEventListener(new ValueEventListener() {
             @Override
@@ -84,6 +75,16 @@ public class CheckAttendanceList extends AppCompatActivity {
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) { }
+        });
+
+        goBack=(ImageView)findViewById(R.id.toolbar_back);
+        goBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(CheckAttendanceList.this, CheckAttendance.class);
+                intent.putExtra("class",lectureNamePassed);
+                startActivity(intent);
+            }
         });
     }
 }
