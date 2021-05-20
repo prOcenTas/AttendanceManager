@@ -9,6 +9,13 @@ MoSCoW requirements:
 | -[x] Manage students| -[x] Ability to contact developer |
 | -[x] Managing attendance | -[x] only Admins being able to register a teacher |
 
-In the bug tab I will talk about the bugs I found during testing phase that I did not notice during the development
-Bugs:
-1. Passing the data with the intent does not save them after going to the different page and coming back.
+
+Video presentation:
+https://www.youtube.com/watch?v=eaSetxdgF9c
+
+Firebase real-time database:
+https://prnt.sc/1367x10
+https://prnt.sc/1367xbv
+
+Personal opinion:
+Working on this project gave me a really good experience and understanding of how the apps are made and executed. I am happy with what I have achieved and I do know that it can be improved by a lot. Being the developer I know its issues and I know where it could get improved. If the project would be starting know, with all the knowledge I gained, I could definitely make different choices and would change up a lot of features for better performance.
