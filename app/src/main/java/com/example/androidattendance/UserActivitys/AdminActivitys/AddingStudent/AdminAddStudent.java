@@ -41,11 +41,18 @@ public class AdminAddStudent extends AppCompatActivity {
         addButton=(Button) findViewById(R.id.addButton);
         delButton=(Button) findViewById(R.id.deleteButton);
 
+        Intent intent=getIntent();
+        final String name=intent.getStringExtra("name");
+        final String phone=intent.getStringExtra("phoneNu");
+        final String type=intent.getStringExtra("type");
         backOut=(ImageView)findViewById(R.id.toolbar_back);
         backOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(AdminAddStudent.this, AdminActivity.class);
+                intent.putExtra("name",name);
+                intent.putExtra("phoneNu",phone);
+                intent.putExtra("type",type);
                 startActivity(intent);
             }
         });

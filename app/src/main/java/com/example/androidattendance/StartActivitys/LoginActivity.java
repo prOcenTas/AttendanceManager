@@ -18,7 +18,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.androidattendance.R;
 import com.example.androidattendance.UserActivitys.AdminActivitys.AdminActivity;
 import com.example.androidattendance.UserActivitys.TeacherActivitys.UserActivity;
-import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -120,7 +119,7 @@ public class LoginActivity extends AppCompatActivity {
         DatabaseReference reference= FirebaseDatabase.getInstance().getReference("user");
 
         //selecting by what we determine the search
-        Query checkUser=reference.orderByChild("userName").equalTo(inputEmail);
+        Query checkUser=reference.orderByChild("user").equalTo(inputEmail);
 
         //getting data to the snapshot from DB
         checkUser.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -135,7 +134,7 @@ public class LoginActivity extends AppCompatActivity {
                     {
                         loginUsername.setError(null);
 
-                        String emailFromDb=snapshot.child(inputEmail).child("userName").getValue(String.class);
+                        String emailFromDb=snapshot.child(inputEmail).child("user").getValue(String.class);
                         String phoneNuFromDb=snapshot.child(inputEmail).child("phoneNu").getValue(String.class);
                         String typeFromDb=snapshot.child(inputEmail).child("type").getValue(String.class);
                         String nameFromDb=snapshot.child(inputEmail).child("name").getValue(String.class);

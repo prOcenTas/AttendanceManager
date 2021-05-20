@@ -1,29 +1,20 @@
 package com.example.androidattendance.UserActivitys.TeacherActivitys;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.androidattendance.R;
-import com.example.androidattendance.StartActivitys.LoginActivity;
-import com.example.androidattendance.UserActivitys.AdminActivitys.AdminActivity;
-import com.example.androidattendance.UserActivitys.Profile;
+import com.example.androidattendance.UserActivitys.ProfileUser;
 import com.example.androidattendance.UserActivitys.TeacherActivitys.Attendance.CheckAttendance;
 
 public class UserActivity extends AppCompatActivity {
     private ImageView ADSbutton,ESWbutton,ANDbutton,DAIbutton,userProfile;
     private TextView welcmUser;
-    private String namePassed,phonePassed,typePassed;
 
     int request_code=1;
     @Override
@@ -37,18 +28,19 @@ public class UserActivity extends AppCompatActivity {
         DAIbutton=findViewById(R.id.DAIbutton);
         ESWbutton=findViewById(R.id.ESWbutton);
 
+
         welcmUser=findViewById(R.id.welcmUser);
         Intent userIntent=getIntent();
-        namePassed=userIntent.getStringExtra("name");
-        phonePassed=userIntent.getStringExtra("phoneNu");
-        typePassed=userIntent.getStringExtra("type");
+        final String namePassed=userIntent.getStringExtra("name");
+        final String phonePassed=userIntent.getStringExtra("phoneNu");
+        final String typePassed=userIntent.getStringExtra("type");
         welcmUser.setText(namePassed);
 
         userProfile=findViewById(R.id.profile);
         userProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent profileIntent=new Intent(UserActivity.this, Profile.class);
+                Intent profileIntent=new Intent(UserActivity.this, ProfileUser.class);
                 profileIntent.putExtra("name",namePassed);
                 profileIntent.putExtra("phoneNu",phonePassed);
                 profileIntent.putExtra("type",typePassed);

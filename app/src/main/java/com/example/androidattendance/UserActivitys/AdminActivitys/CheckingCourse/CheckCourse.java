@@ -35,11 +35,18 @@ public class CheckCourse extends AppCompatActivity {
         checkESW=(ImageView)findViewById(R.id.checkESW);
         checkAND=(ImageView)findViewById(R.id.checkAND);
 
+        Intent intent=getIntent();
+        final String name=intent.getStringExtra("name");
+        final String phone=intent.getStringExtra("phoneNu");
+        final String type=intent.getStringExtra("type");
         goBack=(ImageView)findViewById(R.id.toolbar_back);
         goBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(CheckCourse.this, AdminActivity.class);
+                intent.putExtra("name",name);
+                intent.putExtra("phoneNu",phone);
+                intent.putExtra("type",type);
                 startActivity(intent);
             }
         });

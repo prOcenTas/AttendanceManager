@@ -9,3 +9,6 @@ MoSCoW requirements:
 | -[x] Manage students| -[x] Ability to contact developer |
 | -[x] Managing attendance | -[x] only Admins being able to register a teacher |
 
+In the bug tab I will talk about the bugs I found during testing phase that I did not notice during the development
+Bugs:
+1. Passing the data with the intent does not save them after going to the different page and coming back.

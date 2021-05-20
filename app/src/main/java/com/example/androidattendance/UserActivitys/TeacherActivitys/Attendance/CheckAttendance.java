@@ -1,13 +1,10 @@
 package com.example.androidattendance.UserActivitys.TeacherActivitys.Attendance;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -16,7 +13,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.androidattendance.R;
-import com.example.androidattendance.UserActivitys.Profile;
 import com.example.androidattendance.UserActivitys.TeacherActivitys.Attendance.AttendanceList.CheckAttendanceList;
 import com.example.androidattendance.UserActivitys.TeacherActivitys.UserActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -48,7 +44,10 @@ public class CheckAttendance extends AppCompatActivity {
         //showing proper class name
         className=(TextView) findViewById(R.id.courseNameToPass);
         Intent intent=getIntent();
-        String lectureNameSent=intent.getStringExtra("Lecture");
+        final String lectureNameSent=intent.getStringExtra("Lecture");
+        final String namePassed=intent.getStringExtra("name");
+        final String phonePassed=intent.getStringExtra("phoneNu");
+        final String typePassed=intent.getStringExtra("type");
         className.setText(lectureNameSent);
 
         //showing todays date
@@ -79,6 +78,9 @@ public class CheckAttendance extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(CheckAttendance.this, UserActivity.class);
+                intent.putExtra("name",namePassed);
+                intent.putExtra("phoneNu",phonePassed);
+                intent.putExtra("type",typePassed);
                 startActivity(intent);
             }
         });

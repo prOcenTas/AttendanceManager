@@ -16,6 +16,8 @@ import android.widget.Toast;
 import com.example.androidattendance.R;
 import com.example.androidattendance.User.User;
 import com.example.androidattendance.UserActivitys.AdminActivitys.AdminActivity;
+import com.example.androidattendance.UserActivitys.TeacherActivitys.Attendance.CheckAttendance;
+import com.example.androidattendance.UserActivitys.TeacherActivitys.UserActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;
@@ -44,11 +46,19 @@ public class RegisterUser extends AppCompatActivity {
         registerPhoneNu=(EditText) findViewById(R.id.phoneNu);
         registerName=(EditText) findViewById(R.id.registerName);
 
+
+        Intent intent=getIntent();
+        final String name=intent.getStringExtra("name");
+        final String phone=intent.getStringExtra("phoneNu");
+        final String type=intent.getStringExtra("type");
         goBack=(ImageView)findViewById(R.id.toolbar_back);
         goBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(RegisterUser.this, AdminActivity.class);
+                intent.putExtra("name",name);
+                intent.putExtra("phoneNu",phone);
+                intent.putExtra("type",type);
                 startActivity(intent);
             }
         });
@@ -69,7 +79,6 @@ public class RegisterUser extends AppCompatActivity {
 
                     User usersInfo=new User(userName,password,type,phoneNu,name);
                     reference.child(userName).setValue(usersInfo);
-
                 }
             }
         });
@@ -85,9 +94,10 @@ public class RegisterUser extends AppCompatActivity {
         String name=registerName.getText().toString();
 
 
-        if(user.isEmpty() && password.isEmpty() && phoneNu.isEmpty() && name.isEmpty() || type.isEmpty()){
+        if(user.isEmpty() || password.isEmpty() || phoneNu.isEmpty() || name.isEmpty() || type.isEmpty()){
             Toast.makeText(this,"Please Enter all details",Toast.LENGTH_SHORT).show();
         }else{
+            Toast.makeText(this,"Teacher has been registered",Toast.LENGTH_SHORT).show();
             result =true;
         }
         return result;

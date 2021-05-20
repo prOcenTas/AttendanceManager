@@ -233,37 +233,6 @@
 
                 </LinearLayout>
 
-                <LinearLayout
-                    android:id="@+id/url"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10.00dp"
-                    android:layout_weight="2"
-                    android:background="@drawable/bg_bottombar_content_15"
-                    android:backgroundTint="@color/background"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    android:padding="20.00dp">
-
-                    <ImageView
-                        android:layout_width="27.00dp"
-                        android:layout_height="30.00dp"
-                        android:src="@drawable/ic_text"
-                        app:tint="@color/colorPrimary" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginTop="13.00dp"
-                        android:layout_weight="1"
-                        android:fontFamily="@font/p_reguler"
-                        android:textStyle="bold"
-                        android:text="About"
-                        android:textColor="@color/text4"
-                        android:textSize="14.00dp" />
-
-                </LinearLayout>
             </LinearLayout>
         </LinearLayout>
     </ScrollView>
