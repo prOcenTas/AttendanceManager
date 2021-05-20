@@ -13,7 +13,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".UserActivitys.ProfileAdmin"></activity>
+        <activity android:name=".UserActivitys.ProfileAdmin"
+            android:parentActivityName=".UserActivitys.AdminActivitys.AdminActivity"
+            android:screenOrientation="portrait"></activity>
         <activity
             android:name=".UserActivitys.TeacherActivitys.Attendance.AttendanceList.CheckAttendanceList"
             android:parentActivityName=".UserActivitys.TeacherActivitys.Attendance.CheckAttendance"
