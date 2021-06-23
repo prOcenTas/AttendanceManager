@@ -11,7 +11,7 @@ MoSCoW requirements:
 
 
 Video presentation:
-https://www.youtube.com/watch?v=eaSetxdgF9c
+https://youtu.be/sLR2a528Lsc
 
 Firebase real-time database:
 https://prnt.sc/1367x10
